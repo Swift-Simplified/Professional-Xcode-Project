@@ -35,12 +35,15 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            Color(hex: themeManager.currentTheme.background)
+                .ignoresSafeArea()
             Text(calc.lcdDisplayText)
                 .lineLimit(1)
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding()
                 .font(.system(size: 90))
                 .minimumScaleFactor(0.5)
+                .foregroundColor(Color(hex: themeManager.currentTheme.display))
                 .onTapGesture(count: 2) {
                     rotateToNextTheme()
                 }
@@ -125,7 +128,9 @@ struct ContentView: View {
                     }
                 }
             }
+            Spacer(minLength: 80)
         }
+        .background(Color(hex: themeManager.currentTheme.background))
     }
     
     @ViewBuilder func pinPadButton(_ label: String, widthModifier: CGFloat = 1, _ action: @escaping () -> Void) -> some View {
