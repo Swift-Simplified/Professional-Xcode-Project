@@ -6,11 +6,21 @@
 //
 import SwiftUI
 
+
+class ReactiveThemeManager: ObservableObject {
+    private let themeManager = ThemeManager()
+    var currentTheme: CalculatorTheme
+    
+    init() {
+        self.currentTheme = themeManager.currentTheme
+    }
+}
+
 struct ContentView: View {
     
     // MARK: Properties
-//    @ObservedObject var themeManager: ReactiveThemeManager
     @ObservedObject var calc: ReactiveCalculator
+    @ObservedObject var themeManager: ReactiveThemeManager
     private let buttonSize = CGSize(width: 78, height: 78) // TODO: How do we resize these buttons based on screen width?
     
     var body: some View {
@@ -24,16 +34,16 @@ struct ContentView: View {
 
             HStack {
                 Group {
-                    pinPadButton("AC") {
+                    extraFeatureButton("AC") {
                         calc.clearPressed()
                     }
-                    pinPadButton("⁺∕₋") {
+                    extraFeatureButton("⁺∕₋") {
                         calc.negatePressed()
                     }
-                    pinPadButton("%") {
+                    extraFeatureButton("%") {
                         calc.percentagePressed()
                     }
-                    pinPadButton("÷") {
+                    operatorButton("÷") {
                         calc.dividePressed()
                     }
                 }
@@ -50,7 +60,7 @@ struct ContentView: View {
                     pinPadButton("9") {
                         calc.numberPressed(9)
                     }
-                    pinPadButton("X") {
+                    operatorButton("X") {
                         calc.multiplyPressed()
                     }
                 }
@@ -67,7 +77,7 @@ struct ContentView: View {
                     pinPadButton("6") {
                         calc.numberPressed(6)
                     }
-                    pinPadButton("-") {
+                    operatorButton("-") {
                         calc.minusPressed()
                     }
                 }
@@ -84,7 +94,7 @@ struct ContentView: View {
                     pinPadButton("3") {
                         calc.numberPressed(3)
                     }
-                    pinPadButton("+") {
+                    operatorButton("+") {
                         calc.addPressed()
                     }
                 }
@@ -98,7 +108,7 @@ struct ContentView: View {
                     pinPadButton(".") {
                         calc.decimalPressed()
                     }
-                    pinPadButton("=") {
+                    operatorButton("=") {
                         calc.equalsPressed()
                     }
                 }
@@ -113,8 +123,34 @@ struct ContentView: View {
             Text(label)
                 .font(.largeTitle)
                 .frame(width: buttonSize.width * widthModifier, height: buttonSize.height)
-                .background(Color.green)
-                .foregroundColor(Color.white)
+                .background(Color(hex: themeManager.currentTheme.pinPad))
+                .foregroundColor(Color(hex: themeManager.currentTheme.pinPadTitle))
+                .cornerRadius(10)
+        })
+    }
+    
+    @ViewBuilder func operatorButton(_ label: String, _ action: @escaping () -> Void) -> some View {
+        Button(action: {
+            action()
+        }, label: {
+            Text(label)
+                .font(.largeTitle)
+                .frame(width: buttonSize.width, height: buttonSize.height)
+                .background(Color(hex: themeManager.currentTheme.operatorNormal))
+                .foregroundColor(Color(hex: themeManager.currentTheme.operatorTitle))
+                .cornerRadius(10)
+        })
+    }
+    
+    @ViewBuilder func extraFeatureButton(_ label: String, _ action: @escaping () -> Void) -> some View {
+        Button(action: {
+            action()
+        }, label: {
+            Text(label)
+                .font(.largeTitle)
+                .frame(width: buttonSize.width, height: buttonSize.height)
+                .background(Color(hex: themeManager.currentTheme.extraFunctions))
+                .foregroundColor(Color(hex: themeManager.currentTheme.extraFunctionsTitle))
                 .cornerRadius(10)
         })
     }
@@ -122,6 +158,9 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(calc: ReactiveCalculator())
+        ContentView(
+            calc: ReactiveCalculator(),
+            themeManager: ReactiveThemeManager()
+        )
     }
 }

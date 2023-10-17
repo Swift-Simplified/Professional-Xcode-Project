@@ -11,10 +11,11 @@ import SwiftUI
 struct Calc123App: App {
     
     let calc = ReactiveCalculator()
+    let themeManager = ReactiveThemeManager()
     
     var body: some Scene {
         WindowGroup {
-            ContentView(calc: calc)
+            ContentView(calc: calc, themeManager: themeManager)
         }
     }
 }
