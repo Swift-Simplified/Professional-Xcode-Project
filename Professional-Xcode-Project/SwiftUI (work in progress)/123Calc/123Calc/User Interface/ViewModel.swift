@@ -8,7 +8,7 @@
 import Foundation
 
 
-class ReactiveCalculatorAPI: ObservableObject, CalculatorAPI {
+class ReactiveCalculator: ObservableObject, CalculatorAPI {
     private let calculatorEngine: CalculatorAPI = {
         Calculator() {
             EquationBuilder(equation: Equation())
@@ -24,48 +24,49 @@ class ReactiveCalculatorAPI: ObservableObject, CalculatorAPI {
     }
     
     func clearPressed() {
-        calculatorEngine.clearPressed()
         objectWillChange.send()
+        calculatorEngine.clearPressed()
     }
     func negatePressed() {
-        calculatorEngine.negatePressed()
         objectWillChange.send()
+        calculatorEngine.negatePressed()
     }
     func percentagePressed() {
-        calculatorEngine.percentagePressed()
         objectWillChange.send()
+        calculatorEngine.percentagePressed()
     }
     func numberPressed(_ number: Int) {
-        calculatorEngine.numberPressed(number)
         objectWillChange.send()
+        calculatorEngine.numberPressed(number)
     }
     func decimalPressed() {
-        calculatorEngine.decimalPressed()
         objectWillChange.send()
+        calculatorEngine.decimalPressed()
     }
     func addPressed() {
-        calculatorEngine.addPressed()
         objectWillChange.send()
+        calculatorEngine.addPressed()
     }
     func minusPressed() {
-        calculatorEngine.minusPressed()
         objectWillChange.send()
+        calculatorEngine.minusPressed()
     }
     func multiplyPressed() {
-        calculatorEngine.multiplyPressed()
         objectWillChange.send()
+        calculatorEngine.multiplyPressed()
     }
     func dividePressed() {
-        calculatorEngine.dividePressed()
         objectWillChange.send()
+        calculatorEngine.dividePressed()
     }
     func equalsPressed() {
-        calculatorEngine.equalsPressed()
         objectWillChange.send()
+        calculatorEngine.equalsPressed()
     }
     
     func restoreFromLastSession() -> Bool {
-        calculatorEngine.restoreFromLastSession()
+        objectWillChange.send()
+        return calculatorEngine.restoreFromLastSession()
     }
     
     var history: [EquationRepresentable] {
@@ -73,13 +74,13 @@ class ReactiveCalculatorAPI: ObservableObject, CalculatorAPI {
     }
     
     func pasteInNumber(from decimal: Decimal) {
-        calculatorEngine.pasteInNumber(from: decimal)
         objectWillChange.send()
+        calculatorEngine.pasteInNumber(from: decimal)
     }
     
     func pasteInNumber(from mathEquation: EquationRepresentable) {
-        calculatorEngine.pasteInNumber(from: mathEquation)
         objectWillChange.send()
+        calculatorEngine.pasteInNumber(from: mathEquation)
     }
     
     var rhs: Decimal? {

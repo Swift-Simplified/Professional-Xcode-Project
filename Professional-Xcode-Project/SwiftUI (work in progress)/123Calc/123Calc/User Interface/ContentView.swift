@@ -9,30 +9,32 @@ import SwiftUI
 struct ContentView: View {
     
     // MARK: Properties
-    
-    @ObservedObject var calculator: ReactiveCalculatorAPI
+//    @ObservedObject var themeManager: ReactiveThemeManager
+    @ObservedObject var calc: ReactiveCalculator
     private let buttonSize = CGSize(width: 78, height: 78) // TODO: How do we resize these buttons based on screen width?
     
     var body: some View {
         VStack {
-            Text(calculator.lcdDisplayText)
+            Text(calc.lcdDisplayText)
+                .lineLimit(1)
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding()
                 .font(.system(size: 90))
+                .minimumScaleFactor(0.5)
 
             HStack {
                 Group {
                     pinPadButton("AC") {
-                        calculator.clearPressed()
+                        calc.clearPressed()
                     }
                     pinPadButton("⁺∕₋") {
-                        calculator.negatePressed()
+                        calc.negatePressed()
                     }
                     pinPadButton("%") {
-                        calculator.percentagePressed()
+                        calc.percentagePressed()
                     }
                     pinPadButton("÷") {
-                        calculator.dividePressed()
+                        calc.dividePressed()
                     }
                 }
             }
@@ -40,16 +42,16 @@ struct ContentView: View {
             HStack {
                 Group {
                     pinPadButton("7") {
-                        calculator.numberPressed(7)
+                        calc.numberPressed(7)
                     }
                     pinPadButton("8") {
-                        calculator.numberPressed(8)
+                        calc.numberPressed(8)
                     }
                     pinPadButton("9") {
-                        calculator.numberPressed(9)
+                        calc.numberPressed(9)
                     }
                     pinPadButton("X") {
-                        calculator.multiplyPressed()
+                        calc.multiplyPressed()
                     }
                 }
             }
@@ -57,16 +59,16 @@ struct ContentView: View {
             HStack {
                 Group {
                     pinPadButton("4") {
-                        calculator.numberPressed(4)
+                        calc.numberPressed(4)
                     }
                     pinPadButton("5") {
-                        calculator.numberPressed(5)
+                        calc.numberPressed(5)
                     }
                     pinPadButton("6") {
-                        calculator.numberPressed(6)
+                        calc.numberPressed(6)
                     }
                     pinPadButton("-") {
-                        calculator.minusPressed()
+                        calc.minusPressed()
                     }
                 }
             }
@@ -74,16 +76,16 @@ struct ContentView: View {
             HStack {
                 Group {
                     pinPadButton("1") {
-                        calculator.numberPressed(1)
+                        calc.numberPressed(1)
                     }
                     pinPadButton("2") {
-                        calculator.numberPressed(2)
+                        calc.numberPressed(2)
                     }
                     pinPadButton("3") {
-                        calculator.numberPressed(3)
+                        calc.numberPressed(3)
                     }
                     pinPadButton("+") {
-                        calculator.addPressed()
+                        calc.addPressed()
                     }
                 }
             }
@@ -91,13 +93,13 @@ struct ContentView: View {
             HStack {
                 Group {
                     pinPadButton("0", widthModifier: 2.1) {
-                        calculator.numberPressed(0)
+                        calc.numberPressed(0)
                     }
                     pinPadButton(".") {
-                        calculator.decimalPressed()
+                        calc.decimalPressed()
                     }
                     pinPadButton("=") {
-                        calculator.equalsPressed()
+                        calc.equalsPressed()
                     }
                 }
             }
@@ -109,17 +111,17 @@ struct ContentView: View {
             action()
         }, label: {
             Text(label)
-                .font(.caption)
+                .font(.largeTitle)
                 .frame(width: buttonSize.width * widthModifier, height: buttonSize.height)
-               .background(Color.green)
-               .foregroundColor(Color.white)
-               .cornerRadius(10)
+                .background(Color.green)
+                .foregroundColor(Color.white)
+                .cornerRadius(10)
         })
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(calculator: ReactiveCalculatorAPI())
+        ContentView(calc: ReactiveCalculator())
     }
 }

@@ -10,11 +10,11 @@ import SwiftUI
 @main
 struct Calc123App: App {
     
-    let calculatorEngine = ReactiveCalculatorAPI()
+    let calc = ReactiveCalculator()
     
     var body: some Scene {
         WindowGroup {
-            ContentView(calculator: calculatorEngine)
+            ContentView(calc: calc)
         }
     }
 }
