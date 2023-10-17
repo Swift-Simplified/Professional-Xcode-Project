@@ -34,103 +34,107 @@ struct ContentView: View {
     private let buttonSize = CGSize(width: 78, height: 78) // TODO: How do we resize these buttons based on screen width?
     
     var body: some View {
-        VStack {
+        NavigationView {
+            VStack {
+                Spacer(minLength: 20)
+                Text(calc.lcdDisplayText)
+                    .lineLimit(1)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .padding()
+                    .font(.system(size: 90))
+                    .minimumScaleFactor(0.5)
+                    .foregroundColor(Color(hex: themeManager.currentTheme.display))
+                    .onTapGesture(count: 2) {
+                        rotateToNextTheme()
+                    }
+                HStack {
+                    Group {
+                        extraFeatureButton("AC") {
+                            calc.clearPressed()
+                        }
+                        extraFeatureButton("⁺∕₋") {
+                            calc.negatePressed()
+                        }
+                        extraFeatureButton("%") {
+                            calc.percentagePressed()
+                        }
+                        operatorButton("÷") {
+                            calc.dividePressed()
+                        }
+                    }
+                }
+                
+                HStack {
+                    Group {
+                        pinPadButton("7") {
+                            calc.numberPressed(7)
+                        }
+                        pinPadButton("8") {
+                            calc.numberPressed(8)
+                        }
+                        pinPadButton("9") {
+                            calc.numberPressed(9)
+                        }
+                        operatorButton("X") {
+                            calc.multiplyPressed()
+                        }
+                    }
+                }
+                
+                HStack {
+                    Group {
+                        pinPadButton("4") {
+                            calc.numberPressed(4)
+                        }
+                        pinPadButton("5") {
+                            calc.numberPressed(5)
+                        }
+                        pinPadButton("6") {
+                            calc.numberPressed(6)
+                        }
+                        operatorButton("-") {
+                            calc.minusPressed()
+                        }
+                    }
+                }
+                
+                HStack {
+                    Group {
+                        pinPadButton("1") {
+                            calc.numberPressed(1)
+                        }
+                        pinPadButton("2") {
+                            calc.numberPressed(2)
+                        }
+                        pinPadButton("3") {
+                            calc.numberPressed(3)
+                        }
+                        operatorButton("+") {
+                            calc.addPressed()
+                        }
+                    }
+                }
+                
+                HStack {
+                    Group {
+                        pinPadButton("0", widthModifier: 2.1) {
+                            calc.numberPressed(0)
+                        }
+                        pinPadButton(".") {
+                            calc.decimalPressed()
+                        }
+                        operatorButton("=") {
+                            calc.equalsPressed()
+                        }
+                    }
+                }
+                Spacer(minLength: 20)
+            }
+            .background(Color(hex: themeManager.currentTheme.background))
             Color(hex: themeManager.currentTheme.background)
                 .ignoresSafeArea()
-            Text(calc.lcdDisplayText)
-                .lineLimit(1)
-                .frame(maxWidth: .infinity, alignment: .trailing)
-                .padding()
-                .font(.system(size: 90))
-                .minimumScaleFactor(0.5)
-                .foregroundColor(Color(hex: themeManager.currentTheme.display))
-                .onTapGesture(count: 2) {
-                    rotateToNextTheme()
-                }
-            HStack {
-                Group {
-                    extraFeatureButton("AC") {
-                        calc.clearPressed()
-                    }
-                    extraFeatureButton("⁺∕₋") {
-                        calc.negatePressed()
-                    }
-                    extraFeatureButton("%") {
-                        calc.percentagePressed()
-                    }
-                    operatorButton("÷") {
-                        calc.dividePressed()
-                    }
-                }
-            }
-            
-            HStack {
-                Group {
-                    pinPadButton("7") {
-                        calc.numberPressed(7)
-                    }
-                    pinPadButton("8") {
-                        calc.numberPressed(8)
-                    }
-                    pinPadButton("9") {
-                        calc.numberPressed(9)
-                    }
-                    operatorButton("X") {
-                        calc.multiplyPressed()
-                    }
-                }
-            }
-            
-            HStack {
-                Group {
-                    pinPadButton("4") {
-                        calc.numberPressed(4)
-                    }
-                    pinPadButton("5") {
-                        calc.numberPressed(5)
-                    }
-                    pinPadButton("6") {
-                        calc.numberPressed(6)
-                    }
-                    operatorButton("-") {
-                        calc.minusPressed()
-                    }
-                }
-            }
-            
-            HStack {
-                Group {
-                    pinPadButton("1") {
-                        calc.numberPressed(1)
-                    }
-                    pinPadButton("2") {
-                        calc.numberPressed(2)
-                    }
-                    pinPadButton("3") {
-                        calc.numberPressed(3)
-                    }
-                    operatorButton("+") {
-                        calc.addPressed()
-                    }
-                }
-            }
-            
-            HStack {
-                Group {
-                    pinPadButton("0", widthModifier: 2.1) {
-                        calc.numberPressed(0)
-                    }
-                    pinPadButton(".") {
-                        calc.decimalPressed()
-                    }
-                    operatorButton("=") {
-                        calc.equalsPressed()
-                    }
-                }
-            }
-            Spacer(minLength: 80)
         }
-        .background(Color(hex: themeManager.currentTheme.background))
+        .preferredColorScheme(themeManager.currentTheme.statusBarStyle == .dark ? .light : .dark)
     }
     
     @ViewBuilder func pinPadButton(_ label: String, widthModifier: CGFloat = 1, _ action: @escaping () -> Void) -> some View {

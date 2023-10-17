@@ -7,8 +7,10 @@
 
 import SwiftUI
 
+
 @main
 struct Calc123App: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     let calc = ReactiveCalculator()
     let themeManager = ReactiveThemeManager()
@@ -17,5 +19,14 @@ struct Calc123App: App {
         WindowGroup {
             ContentView(calc: calc, themeManager: themeManager)
         }
+    }
+}
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+        
+    static var orientationLock = UIInterfaceOrientationMask.portrait
+
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return AppDelegate.orientationLock
     }
 }
