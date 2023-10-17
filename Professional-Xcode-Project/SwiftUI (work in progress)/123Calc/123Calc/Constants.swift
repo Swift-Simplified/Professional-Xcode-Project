@@ -1,11 +1,10 @@
 //
 //  Constants.swift
-//  Calc123
+//  123Calc
 //
-//  Swift Simplified .com
-//  Created by Matthew Harding (Swift engineer & online instructor) on 24/01/2023
+//  Created by SwiftSimplified.com on 23/09/2023.
 //
-//  Matthew Harding                 → All rights reserved
+//  SwiftSimplified.com             → All rights reserved
 //  Website                         → https://www.swiftsimplified.com
 //
 //  We 🧡 Swift
@@ -21,6 +20,7 @@
 // -------------------------------------------------------------------------------------------
 
 import Foundation
+import UIKit
 
 // MARK: - LCDDisplay
 
@@ -30,15 +30,6 @@ import Foundation
 //        static let pasteEquationNotification = "swiftsimplified.com.calc.LCDDisplay.pasteMathEquation"
 //        static let userInfo = "valueToPaste"
 //        static let historyLogNotification = "swiftsimplified.com.calc.LCDDisplay.displayHistory"
-//    }
-//}
-
-// MARK: - UIStoryboard
-
-//extension UIStoryboard {
-//    enum keys {
-//        static let mainStoryboard = "Main"
-//        static let logViewController = "LogViewController"
 //    }
 //}
 
@@ -59,9 +50,9 @@ extension ThemeManager {
     }
 }
 
-// MARK: - Calc123Engine
+// MARK: - Calculator
 
-extension Calc123Engine {
+extension Calculator {
     enum keys {
         static let dataStore = "swiftsimplified.com.calc.CalculatorEngine.total"
     }

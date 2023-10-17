@@ -1,10 +1,10 @@
 //
-//  LightBlueCalculatorTheme.swift
-//  Calc123
+//  LightBlueTheme.swift
+//  123Calc
 //
-//  Created by Matthew Harding (Swift engineer & online instructor) on 24/01/2023
+//  Created by SwiftSimplified.com on 23/09/2023.
 //
-//  Matthew Harding                 → All rights reserved
+//  SwiftSimplified.com             → All rights reserved
 //  Website                         → https://www.swiftsimplified.com
 //
 //  We 🧡 Swift
@@ -15,7 +15,7 @@
 //
 // → What's This File?
 //   It's a color theme, used to display a different color theme.
-//   Architectural Layer: Data Layer
+//   Architectural Layer: The business logic layer (the main non-visual system).
 //
 //   💡 Convenience Tip 👉🏻 We used extensions to seperate themes into seperate files providing
 //   designers with editable documents. Also allowing us to conveniently load the theme array.

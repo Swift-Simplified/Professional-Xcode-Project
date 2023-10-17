@@ -1,10 +1,10 @@
 //
-//  iOSBFreeCalculatorEngine.swift
-//  Calc123
+//  Calculator.swift
+//  123Calc
 //
-//  Created by Matthew Harding (Swift engineer & online instructor) on 25/01/2023
+//  Created by SwiftSimplified.com on 23/09/2023.
 //
-//  Matthew Harding                 → All rights reserved
+//  SwiftSimplified.com             → All rights reserved
 //  Website                         → https://www.swiftsimplified.com
 //
 //  We 🧡 Swift
@@ -22,40 +22,43 @@
 
 import Foundation
 
-
-class Calc123Engine: CalculatorAPI {
+class Calculator: CalculatorAPI {
     
-    // MARK: - Variables
+    // MARK: - Properties
     
-    private(set) var history: [MathEquationRepresentable] = []
-    private var mathInputController: CalculatorInput
-    private let calculatorInputCreator: (() -> CalculatorInput)
+    private(set) var history: [EquationRepresentable] = []
+    private var equationBuilder: EquationBuilding
+    private let equationBuilderProvider: (() -> EquationBuilding)
     
     // MARK: - Managers
     
-    private let dataStore = DataStoreManager(key: Calc123Engine.keys.dataStore)
+    private let dataStore = DataStoreManager(key: Calculator.keys.dataStore)
     
     // MARK: - Display
     
     var lcdDisplayText: String {
-        mathInputController.lcdDisplayText
+        equationBuilder.lcdDisplayText
     }
     
     // MARK: - Properties For Testing
     
     var lhs: Decimal {
-        mathInputController.lhs
+        equationBuilder.lhs
     }
     
     var rhs: Decimal? {
-        mathInputController.rhs
+        equationBuilder.rhs
+    }
+    
+    var operation: MathOperation? {
+        equationBuilder.operation
     }
     
     // MARK: - Initialiser
     
-    init(_ calculatorInputCreator: @escaping (() -> CalculatorInput)) {
-        self.calculatorInputCreator = calculatorInputCreator
-        self.mathInputController = calculatorInputCreator()
+    init(_ equationBuilder: @escaping (() -> EquationBuilding)) {
+        self.equationBuilderProvider = equationBuilder
+        self.equationBuilder = equationBuilder()
     }
     
     // MARK: - Interaction API
@@ -65,63 +68,63 @@ class Calc123Engine: CalculatorAPI {
     }
     
     func clearPressed() {
-        mathInputController = calculatorInputCreator()
+        equationBuilder = equationBuilderProvider()
         deleteSavedSession()
     }
     
     func negatePressed() {
         populatePreviousResultIfNeeded(true)
-        mathInputController.negate()
+        equationBuilder.negate()
     }
     
     func percentagePressed() {
         populatePreviousResultIfNeeded(true)
-        mathInputController.applyPercentage()
+        equationBuilder.applyPercentage()
     }
     
     func decimalPressed() {
-        if mathInputController.isCompleted {
-            mathInputController = calculatorInputCreator()
+        if equationBuilder.isCompleted {
+            equationBuilder = equationBuilderProvider()
         }
-        mathInputController.applyDecimalPoint()
+        equationBuilder.applyDecimalPoint()
     }
     
     var result: Decimal? {
-        mathInputController.result
+        equationBuilder.result
     }
     
     // MARK: - Operations
     
     func addPressed() {
         commitAndPopulatePreviousResultIfNeeded()
-        mathInputController.add()
+        equationBuilder.add()
     }
     
     func minusPressed() {
         commitAndPopulatePreviousResultIfNeeded()
-        mathInputController.subtract()
+        equationBuilder.subtract()
     }
     
     func multiplyPressed() {
         commitAndPopulatePreviousResultIfNeeded()
-        mathInputController.multiply()
+        equationBuilder.multiply()
     }
     
     func dividePressed() {
         commitAndPopulatePreviousResultIfNeeded()
-        mathInputController.divide()
+        equationBuilder.divide()
     }
     
     func equalsPressed() {
-        if mathInputController.isCompleted {
-            var newMathInput = calculatorInputCreator()
-            newMathInput.lhs = mathInputController.result ?? Decimal.zero
-            newMathInput.operation = mathInputController.operation
-            newMathInput.rhs = mathInputController.rhs
-            mathInputController = newMathInput
+        if equationBuilder.isCompleted {
+            var newEquationBuilder = equationBuilderProvider()
+            newEquationBuilder.lhs = equationBuilder.result ?? Decimal.zero
+            newEquationBuilder.operation = equationBuilder.operation
+            newEquationBuilder.rhs = equationBuilder.rhs
+            equationBuilder = newEquationBuilder
         }
         
-        guard mathInputController.isReadyToExecute else {
+        guard equationBuilder.isReadyToExecute else {
             return
         }
         
@@ -131,22 +134,24 @@ class Calc123Engine: CalculatorAPI {
     // MARK: - Equation Execution
     
     private func executeMathInputController() {
-        mathInputController.execute()
-        appendToHistoryLog(mathInputController)
-        printEquationToDebugConsole(mathInputController)
+        equationBuilder.execute()
+        appendToHistoryLog(equationBuilder)
+        #if DEBUG
+        printEquationToDebugConsole(equationBuilder)
+        #endif
         saveSession()
     }
     
-    private func appendToHistoryLog(_ inputController: CalculatorInput) {
-        guard inputController.allowRecordingToTheHistoryLog else { return }
-        history.append(inputController.equation)
+    private func appendToHistoryLog(_ equationBuilder: EquationBuilding) {
+        guard equationBuilder.allowRecordingToTheHistoryLog else { return }
+        history.append(equationBuilder.equation)
     }
     
     // MARK: - Print To Console
     
-    private func printEquationToDebugConsole(_ mathInputController: CalculatorInput) {
+    private func printEquationToDebugConsole(_ equationBuilder: EquationBuilding) {
         // → Using the print command only works in debug mode
-        print(mathInputController.generatePrintout)
+        print(equationBuilder.generatePrintout)
     }
     
     // MARK: - Number Input
@@ -156,17 +161,17 @@ class Calc123Engine: CalculatorAPI {
         guard number <= 9,
         number >= 0 else { return }
         
-        if mathInputController.isCompleted {
-            mathInputController = calculatorInputCreator()
+        if equationBuilder.isCompleted {
+            equationBuilder = equationBuilderProvider()
         }
-        mathInputController.enterNumber(number)
+        equationBuilder.enterNumber(number)
     }
     
     // MARK: - Business Logic & Behaviour
     
     private func commitCurrentEquationIfNeeded() -> Bool {
-        if mathInputController.isCompleted == false,
-           mathInputController.isReadyToExecute {
+        if equationBuilder.isCompleted == false,
+           equationBuilder.isReadyToExecute {
             executeMathInputController()
             return true
         }
@@ -175,13 +180,13 @@ class Calc123Engine: CalculatorAPI {
     }
     
     private func populateMathInputControllerWithPreviousResult(_ continueEditingResult: Bool = false) {
-        var newMathInput = calculatorInputCreator()
-        newMathInput.lhs = mathInputController.result ?? Decimal(0)
+        var newEquationBuilder = equationBuilderProvider()
+        newEquationBuilder.lhs = equationBuilder.result ?? Decimal(0)
         
         if continueEditingResult == false {
-            newMathInput.startEditingRightHandSide()
+            newEquationBuilder.startEditingRightHandSide()
         }
-        mathInputController = newMathInput
+        equationBuilder = newEquationBuilder
     }
     
     private func commitAndPopulatePreviousResultIfNeeded(_ continueEditingResult: Bool = false) {
@@ -192,13 +197,13 @@ class Calc123Engine: CalculatorAPI {
         }
         
         // → secanrio 2: user enters 5 * 5 = *
-        if mathInputController.isCompleted {
+        if equationBuilder.isCompleted {
             populateMathInputControllerWithPreviousResult()
         }
     }
     
     private func populatePreviousResultIfNeeded(_ continueEditingResult: Bool = false) {
-        if mathInputController.isCompleted {
+        if equationBuilder.isCompleted {
             populateMathInputControllerWithPreviousResult(continueEditingResult)
         }
     }
@@ -213,27 +218,27 @@ class Calc123Engine: CalculatorAPI {
             return false
         }
         
-        var newMathInput = calculatorInputCreator()
-        newMathInput.lhs = Decimal(1)
-        newMathInput.multiply()
-        newMathInput.rhs = lastExecutedResult
-        newMathInput.execute()
-        mathInputController = newMathInput
+        var newEquationBuilder = equationBuilderProvider()
+        newEquationBuilder.lhs = Decimal(1)
+        newEquationBuilder.multiply()
+        newEquationBuilder.rhs = lastExecutedResult
+        newEquationBuilder.execute()
+        equationBuilder = newEquationBuilder
         return true
     }
     
     private func saveSession() {
-        guard mathInputController.allowRecordingToTheHistoryLog else { return }
+        guard equationBuilder.allowRecordingToTheHistoryLog else { return }
         
         guard
-            isMathInputSafeToBeSaved(mathInputController) == true,
-            mathInputController.result?.isEqual(to: .zero) == false
+            isMathInputSafeToBeSaved(equationBuilder) == true,
+            equationBuilder.result?.isEqual(to: .zero) == false
         else {
             return
         }
         
         let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(mathInputController.equation) {
+        if let encoded = try? encoder.encode(equationBuilder.equation) {
             dataStore.set(encoded)
         }
     }
@@ -242,23 +247,23 @@ class Calc123Engine: CalculatorAPI {
         dataStore.deleteValue()
     }
     
-    private func isMathInputSafeToBeSaved(_ mathInput: CalculatorInput) -> Bool {
-        guard mathInput.containsNans == false,  // → crashes when encoding nans
-              let _ = mathInput.result,
-              mathInput.isCompleted
+    private func isMathInputSafeToBeSaved(_ equationBuilder: EquationBuilding) -> Bool {
+        guard equationBuilder.containsNans == false,  // → crashes when encoding nans
+              let _ = equationBuilder.result,
+              equationBuilder.isCompleted
         else {
             return false
         }
         return true
     }
     
-    private func readSavedEquationFromDisk() -> MathEquation? {
+    private func readSavedEquationFromDisk() -> Equation? {
         guard let savedEquation = dataStore.getValue() as? Data else {
             return nil
         }
         
         let decoder = JSONDecoder()
-        return try? decoder.decode(MathEquation.self, from: savedEquation)
+        return try? decoder.decode(Equation.self, from: savedEquation)
     }
     
     // MARK: - Copy & Paste
@@ -266,19 +271,19 @@ class Calc123Engine: CalculatorAPI {
     // → 💡 Tip: Adding system features like copy & paste provides a nicer experience for the user.
     
     func pasteInNumber(from decimal: Decimal) {
-        if mathInputController.isCompleted {
-            mathInputController = calculatorInputCreator()
+        if equationBuilder.isCompleted {
+            equationBuilder = equationBuilderProvider()
         }
         
-        mathInputController.pasteIn(decimal)
+        equationBuilder.pasteIn(decimal)
     }
     
-    func pasteInNumber(from mathEquation: MathEquationRepresentable) {
+    func pasteInNumber(from mathEquation: EquationRepresentable) {
         guard let result = mathEquation.result else {
             return
         }
         
-        mathInputController = calculatorInputCreator()
+        equationBuilder = equationBuilderProvider()
         pasteInNumber(from: result)
     }
 }

@@ -1,10 +1,10 @@
 //
-//  OrangeCalculatorTheme.swift
-//  Calc123
+//  ElectroTheme.swift
+//  123Calc
 //
-//  Created by Matthew Harding (Swift engineer & online instructor) on 26/01/2023
+//  Created by SwiftSimplified.com on 23/09/2023.
 //
-//  Matthew Harding                 → All rights reserved
+//  SwiftSimplified.com             → All rights reserved
 //  Website                         → https://www.swiftsimplified.com
 //
 //  We 🧡 Swift
@@ -15,7 +15,7 @@
 //
 // → What's This File?
 //   It's a color theme, used to display a different color theme.
-//   Architectural Layer: Data Layer
+//   Architectural Layer: The business logic layer (the main non-visual system).
 //
 //   💡 Convenience Tip 👉🏻 We used extensions to seperate themes into seperate files providing
 //   designers with editable documents. Also allowing us to conveniently load the theme array.
@@ -26,19 +26,19 @@ import Foundation
 
 extension ThemeLoader {
     
-    var orangeTheme: CalculatorTheme {
-        CalculatorTheme(id:"10",
-        background:             "#DC6969",
+    var electroTheme: CalculatorTheme {
+        CalculatorTheme(id:"2",
+        background:             "#0E0E41",
         display:                "#ffffff",
-        operatorNormal:         "#CC4D4D",
-        operatorSelected:       "#AB2F2F",
-        operatorTitle:          "#ffffff",
+        operatorNormal:         "#4BE6A9",
+        operatorSelected:       "#70729D",
+        operatorTitle:          "#14145C",
         operatorTitleSelected:  "#ffffff",
-        pinPad:                 "#C94848",
-        pinPad123:              "#AB2F2F",
+        pinPad:                 "#14145C",
+        pinPad123:              "#253F54",
         pinPadTitle:            "#ffffff",
-        extraFunctions:         "#D05353",
-        extraFunctionsTitle:    "#ffffff",
+        extraFunctions:         "#14145C",
+        extraFunctionsTitle:    "#4BE6A9",
         statusBarStyle: .light)
     }
 }

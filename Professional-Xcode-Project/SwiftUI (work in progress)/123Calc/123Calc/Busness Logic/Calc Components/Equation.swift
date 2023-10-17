@@ -1,10 +1,10 @@
 //
-//  MathEquation.swift
-//  Calc123
+//  Equation.swift
+//  123Calc
 //
-//  Created by Matthew Harding (Swift engineer & online instructor) on 26/01/2023
+//  Created by SwiftSimplified.com on 23/09/2023.
 //
-//  Matthew Harding                 → All rights reserved
+//  SwiftSimplified.com             → All rights reserved
 //  Website                         → https://www.swiftsimplified.com
 //
 //  We 🧡 Swift
@@ -15,7 +15,7 @@
 //
 // → What's This File?
 //   It's data that represents one equation. It also performs a little math too.
-//   Architectural Layer: Data Layer
+//   Architectural Layer: The business logic layer (the main non-visual system).
 //
 // -------------------------------------------------------------------------------------------
 
@@ -24,20 +24,32 @@ import Foundation
 
 // MARK: - Operation Enum
 
-enum OperationType: String, Codable {
+enum MathOperation: String, Codable {
     case add = "add"
     case subtract = "subtract"
     case divide = "divide"
     case multiply  = "multiply"
+    
+    var symbol: String {
+        switch self {
+        case .multiply: return "*"
+        case .divide: return "/"
+        case .add: return "+"
+        case .subtract: return "-"
+        }
+    }
 }
 
-protocol MathEquationRepresentable: Codable {
+// MARK: - Protocol
+
+protocol EquationRepresentable: Codable {
     var lhs: Decimal { get set }
     var rhs: Decimal? { get set }
     var result: Decimal? { get }
-    var operation: OperationType? { get set }
+    var operation: MathOperation? { get set }
     var isReadyToBeExecuted: Bool { get }
     var executed: Bool { get }
+    
     mutating func execute()
     mutating func negateLeftHandSide()
     mutating func negateRightHandSide()
@@ -45,17 +57,17 @@ protocol MathEquationRepresentable: Codable {
     mutating func applyPercentageToRightHandSide()
     
     func generatePrintout() -> String
-    
-    func generateStringRepresentationOfOperator() -> String
 }
 
-struct MathEquation: MathEquationRepresentable {
+// MARK: - Equation
+
+struct Equation: EquationRepresentable {
     
     // MARK: - Variables
     
     var lhs: Decimal = 0
     var rhs: Decimal?
-    var operation: OperationType?
+    var operation: MathOperation?
     var result: Decimal?
     
     var executed: Bool {

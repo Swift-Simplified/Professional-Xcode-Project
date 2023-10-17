@@ -9,16 +9,11 @@ import Foundation
 
 
 class ReactiveCalculatorAPI: ObservableObject, CalculatorAPI {
-//    let calculatorEngine: CalculatorAPI
     private let calculatorEngine: CalculatorAPI = {
-        Calc123Engine() {
-            MathInputController(equation: MathEquation())
+        Calculator() {
+            EquationBuilder(equation: Equation())
         }
     }()
-    
-//    init(calculatorEngine: CalculatorAPI) {
-//        self.calculatorEngine = calculatorEngine
-//    }
     
     // MARK: - CalculatorAPI
     var result: Decimal? {
@@ -73,7 +68,7 @@ class ReactiveCalculatorAPI: ObservableObject, CalculatorAPI {
         calculatorEngine.restoreFromLastSession()
     }
     
-    var history: [MathEquationRepresentable] {
+    var history: [EquationRepresentable] {
         calculatorEngine.history
     }
     
@@ -82,7 +77,7 @@ class ReactiveCalculatorAPI: ObservableObject, CalculatorAPI {
         objectWillChange.send()
     }
     
-    func pasteInNumber(from mathEquation: MathEquationRepresentable) {
+    func pasteInNumber(from mathEquation: EquationRepresentable) {
         calculatorEngine.pasteInNumber(from: mathEquation)
         objectWillChange.send()
     }
@@ -93,41 +88,7 @@ class ReactiveCalculatorAPI: ObservableObject, CalculatorAPI {
     var lhs: Decimal {
         calculatorEngine.lhs
     }
+    var operation: MathOperation? {
+        calculatorEngine.operation
+    }
 }
-
-
-/**
- 
- 
- 
- var lcdDisplayText: String {
-     calculatorEngine.lcdDisplayText
- }
- 
- var selectedOperator: OperationType?
- 
- func numberPressed(_ number: Int) {
-     calculatorEngine.numberPressed(number)
-     update()
- }
- 
- func operatorPressed(_ operationType: OperationType) {
-     switch operationType {
-     case .add: calculatorEngine.addPressed()
-     case .subtract: calculatorEngine.minusPressed()
-     case .divide: calculatorEngine.dividePressed()
-     case .multiply: calculatorEngine.multiplyPressed()
-     }
-     update()
- }
- 
- func equalsPressed() {
-     calculatorEngine.equalsPressed()
-     update()
- }
- 
- private func update() {
-     objectWillChange.send()
- }
- 
- */

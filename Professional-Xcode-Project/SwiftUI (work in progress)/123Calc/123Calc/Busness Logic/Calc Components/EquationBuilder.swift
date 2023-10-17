@@ -1,10 +1,10 @@
 //
-//  MathInputController.swift
-//  Calc123
+//  EquationBuilder.swift
+//  123Calc
 //
-//  Created by Matthew Harding (Swift engineer & online instructor) on 26/01/2023
+//  Created by SwiftSimplified.com on 23/09/2023.
 //
-//  Matthew Harding                 → All rights reserved
+//  SwiftSimplified.com             → All rights reserved
 //  Website                         → https://www.swiftsimplified.com
 //
 //  We 🧡 Swift
@@ -21,7 +21,9 @@
 
 import Foundation
 
-protocol CalculatorInput {
+// MARK: - Protocol
+
+protocol EquationBuilding {
     var result: Decimal? { get }
     func negate()
     func applyPercentage()
@@ -36,12 +38,12 @@ protocol CalculatorInput {
     var lcdDisplayText: String { get }
     var rhs: Decimal? { get set }
     var lhs: Decimal { get set }
-    var operation: OperationType? { get set }
+    var operation: MathOperation? { get set }
     var isCompleted: Bool { get }
     var isReadyToExecute: Bool { get }
     
     var allowRecordingToTheHistoryLog: Bool { get }
-    var equation: MathEquationRepresentable { get }
+    var equation: EquationRepresentable { get }
     
     var generatePrintout: String { get }
     
@@ -52,7 +54,9 @@ protocol CalculatorInput {
     func pasteIn(_ decimal: Decimal)
 }
 
-class MathInputController: CalculatorInput {
+// MARK: - EquationBuilder
+
+class EquationBuilder: EquationBuilding {
     
     // MARK: - Operation Side Enum
     
@@ -70,7 +74,7 @@ class MathInputController: CalculatorInput {
     
     // MARK: - variables
     
-    private(set) var equation: MathEquationRepresentable
+    private(set) var equation: EquationRepresentable
     private var editingSide: OperandSide = .leftHandSide
     private var isEnteringDecimal = false
     private var currentDecimalPlaces = 1
@@ -110,7 +114,7 @@ class MathInputController: CalculatorInput {
     
     // MARK: - Initialiser
     
-    init(equation: MathEquationRepresentable) {
+    init(equation: EquationRepresentable) {
         self.equation = equation
         lcdDisplayText = formatForLCDDisplay(equation.lhs)
     }
@@ -310,7 +314,7 @@ class MathInputController: CalculatorInput {
         return equation.result
     }
     
-    var operation: OperationType? {
+    var operation: MathOperation? {
         get {
             return equation.operation
         }

@@ -1,10 +1,10 @@
 //
-//  Calc123ulatorTheme.swift
-//  Calc123
+//  CalculatorTheme.swift
+//  123Calc
 //
-//  Created by Matthew Harding (Swift engineer & online instructor) on 24/01/2023
+//  Created by SwiftSimplified.com on 23/09/2023.
 //
-//  Matthew Harding                 → All rights reserved
+//  SwiftSimplified.com             → All rights reserved
 //  Website                         → https://www.swiftsimplified.com
 //
 //  We 🧡 Swift
@@ -15,7 +15,7 @@
 //
 // → What's This File?
 //   It's data, to store color hex values in order to change the colors of the app.
-//   Architectural Layer: Data Layer
+//   Architectural Layer: The business logic layer (the main non-visual system).
 //
 // -------------------------------------------------------------------------------------------
 

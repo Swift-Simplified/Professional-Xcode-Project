@@ -1,10 +1,10 @@
 //
 //  DataStoreManager.swift
-//  Calc123
+//  123Calc
 //
-//  Created by Matthew Harding (Swift engineer & online instructor) on 01/01/22.
+//  Created by SwiftSimplified.com on 23/09/2023.
 //
-//  Matthew Harding                 → All rights reserved
+//  SwiftSimplified.com             → All rights reserved
 //  Website                         → https://www.swiftsimplified.com
 //
 //  We 🧡 Swift
@@ -15,9 +15,10 @@
 //
 // → What's This File?
 //   It's a datastore manager, a simple wrapper for User Defaults.
-//   Architectural Layer: Data Storage Layer
+//   Architectural Layer: The business logic layer (the main non-visual system).
 //
-//   💡 Architecture Tip 👉🏻 We disconnect "how" the data is stored by creating this wrapper.
+//   💡 Architecture Tip 👉🏻 We disconnect "how" the data is stored by creating this wrapper
+//   around the UserDefaults data store.
 // -------------------------------------------------------------------------------------------
 
 
@@ -45,3 +46,4 @@ struct DataStoreManager {
         UserDefaults.standard.removeObject(forKey: key)
     }
 }
+

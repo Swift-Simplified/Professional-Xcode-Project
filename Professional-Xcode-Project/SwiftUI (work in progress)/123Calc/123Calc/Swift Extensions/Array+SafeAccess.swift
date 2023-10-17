@@ -1,10 +1,10 @@
 //
-//  String+Prefix.swift
-//  Calc123
+//  Array+SafeAccess.swift
+//  123Calc
 //
-//  Created by Matthew Harding (Swift engineer & online instructor) on 24/01/2023
+//  Created by SwiftSimplified.com on 23/09/2023.
 //
-//  Matthew Harding                 → All rights reserved
+//  SwiftSimplified.com             → All rights reserved
 //  Website                         → https://www.swiftsimplified.com
 //
 //  We 🧡 Swift
@@ -14,23 +14,17 @@
 // -------------------------------------------------------------------------------------------
 //
 // → What's This File?
-//   It's an extension for Swift Strings. We added a reusable function to add and remove
-//   a prefix from a string
+//   It's an extension for Swift Arrays. We added a nice safety feature for accessing values.
+//   This method of accessing values within an array is regularly used in the iOS industry!
+//   We would highly recommend that you start using it too.
+//   Architectural Layer: An extension to the Swift programming language.
 //
 // -------------------------------------------------------------------------------------------
 
-
 import Foundation
 
-extension String {
-    
-    mutating func addPrefixIfNeeded(_ prefix: String) {
-        guard hasPrefix(prefix) == false else { return }
-        self = prefix + self
-    }
-    
-    mutating func removePrefixIfNeeded(_ prefix: String) {
-        guard hasPrefix(prefix) == true else { return }
-        self = String(dropFirst(prefix.count))
+extension Array {
+    subscript (safe index: Int) -> Element? {
+        return self.indices ~= index ? self[index] : nil
     }
 }

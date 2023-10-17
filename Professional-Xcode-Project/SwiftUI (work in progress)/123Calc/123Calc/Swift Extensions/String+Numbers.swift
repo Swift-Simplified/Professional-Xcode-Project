@@ -1,10 +1,10 @@
 //
 //  String+Numbers.swift
-//  Calc123
+//  123Calc
 //
-//  Created by Matthew Harding (Swift engineer & online instructor) on 24/01/2023
+//  Created by SwiftSimplified.com on 23/09/2023.
 //
-//  Matthew Harding                 → All rights reserved
+//  SwiftSimplified.com             → All rights reserved
 //  Website                         → https://www.swiftsimplified.com
 //
 //  We 🧡 Swift
@@ -16,6 +16,7 @@
 // → What's This File?
 //   It's an extension for Swift Strings. We added a computed property to produce the numeric
 //   equivalent if it exists.
+//   Architectural Layer: An extension to the Swift programming language.
 //
 // -------------------------------------------------------------------------------------------
 

@@ -1,10 +1,10 @@
 //
-//  PinkCalculatorTheme.swift
-//  Calc123
+//  AppBrandTheme.swift
+//  123Calc
 //
-//  Created by Matthew Harding (Swift engineer & online instructor) on 24/01/2023
+//  Created by SwiftSimplified.com on 23/09/2023.
 //
-//  Matthew Harding                 → All rights reserved
+//  SwiftSimplified.com             → All rights reserved
 //  Website                         → https://www.swiftsimplified.com
 //
 //  We 🧡 Swift
@@ -15,7 +15,7 @@
 //
 // → What's This File?
 //   It's a color theme, used to display a different color theme.
-//   Architectural Layer: Data Layer
+//   Architectural Layer: The business logic layer (the main non-visual system).
 //
 //   💡 Convenience Tip 👉🏻 We used extensions to seperate themes into seperate files providing
 //   designers with editable documents. Also allowing us to conveniently load the theme array.
@@ -26,19 +26,19 @@ import Foundation
 
 extension ThemeLoader {
     
-    var pinkTheme: CalculatorTheme {
-        CalculatorTheme(id:"5",
-        background:             "#253C5B",
-        display:                "#EBF0EF",
-        operatorNormal:         "#FA569C",
-        operatorSelected:       "#0265FF",
-        operatorTitle:          "#EBF0EF",
+    var appBrandTheme: CalculatorTheme {
+        CalculatorTheme(id:"3",
+        background:             "#F6F8F9",
+        display:                "#000000",
+        operatorNormal:         "#4BE6A9",
+        operatorSelected:       "#70729D",
+        operatorTitle:          "#14145C",
         operatorTitleSelected:  "#ffffff",
-        pinPad:                 "#16253A",
-        pinPad123:              "#2E4866",
-        pinPadTitle:            "#EBF0EF",
-        extraFunctions:         "#294666",
-        extraFunctionsTitle:    "#EBF0EF",
-        statusBarStyle: .light)
+        pinPad:                 "#E9F0F4",
+        pinPad123:              "#D3E9F4",
+        pinPadTitle:            "#000000",
+        extraFunctions:         "#E9F0F4",
+        extraFunctionsTitle:    "#4BE6A9",
+        statusBarStyle: .dark)
     }
 }

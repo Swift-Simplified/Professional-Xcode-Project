@@ -1,10 +1,10 @@
 //
-//  WashedOutCalculatorTheme.swift
-//  Calc123
+//  PinkTheme.swift
+//  123Calc
 //
-//  Created by Matthew Harding (Swift engineer & online instructor) on 26/01/2023
+//  Created by SwiftSimplified.com on 23/09/2023.
 //
-//  Matthew Harding                 → All rights reserved
+//  SwiftSimplified.com             → All rights reserved
 //  Website                         → https://www.swiftsimplified.com
 //
 //  We 🧡 Swift
@@ -15,7 +15,7 @@
 //
 // → What's This File?
 //   It's a color theme, used to display a different color theme.
-//   Architectural Layer: Data Layer
+//   Architectural Layer: The business logic layer (the main non-visual system).
 //
 //   💡 Convenience Tip 👉🏻 We used extensions to seperate themes into seperate files providing
 //   designers with editable documents. Also allowing us to conveniently load the theme array.
@@ -26,19 +26,19 @@ import Foundation
 
 extension ThemeLoader {
     
-    var washedOutTheme: CalculatorTheme {
-        CalculatorTheme(id:"8",
-        background:             "#ECF5FF",
-        display:                "#0D2A4B",
-        operatorNormal:         "#A3CFF9",
-        operatorSelected:       "#0D2A4B",
-        operatorTitle:          "#5487BA",
+    var pinkTheme: CalculatorTheme {
+        CalculatorTheme(id:"5",
+        background:             "#253C5B",
+        display:                "#EBF0EF",
+        operatorNormal:         "#FA569C",
+        operatorSelected:       "#0265FF",
+        operatorTitle:          "#EBF0EF",
         operatorTitleSelected:  "#ffffff",
-        pinPad:                 "#1D1D1D",
-        pinPad123:              "#5487BA",
-        pinPadTitle:            "#ffffff",
-        extraFunctions:         "#A3CFF9",
-        extraFunctionsTitle:    "#5487BA",
-        statusBarStyle: .dark)
+        pinPad:                 "#16253A",
+        pinPad123:              "#2E4866",
+        pinPadTitle:            "#EBF0EF",
+        extraFunctions:         "#294666",
+        extraFunctionsTitle:    "#EBF0EF",
+        statusBarStyle: .light)
     }
 }

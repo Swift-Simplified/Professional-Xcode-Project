@@ -1,10 +1,10 @@
 //
 //  ThemeManager.swift
-//  Calc123
+//  123Calc
 //
-//  Created by Matthew Harding (Swift engineer & online instructor) on 27/01/2023
+//  Created by SwiftSimplified.com on 23/09/2023.
 //
-//  Matthew Harding                 → All rights reserved
+//  SwiftSimplified.com             → All rights reserved
 //  Website                         → https://www.swiftsimplified.com
 //
 //  We 🧡 Swift

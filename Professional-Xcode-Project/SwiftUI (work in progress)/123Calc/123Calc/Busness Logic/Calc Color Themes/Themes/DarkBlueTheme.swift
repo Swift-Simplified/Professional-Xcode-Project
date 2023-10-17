@@ -1,10 +1,10 @@
 //
-//  LightCalculatorTheme.swift
-//  Calc123
+//  DarkBlueTheme.swift
+//  123Calc
 //
-//  Created by Matthew Harding (Swift engineer & online instructor) on 24/01/2023
+//  Created by SwiftSimplified.com on 23/09/2023.
 //
-//  Matthew Harding                 → All rights reserved
+//  SwiftSimplified.com             → All rights reserved
 //  Website                         → https://www.swiftsimplified.com
 //
 //  We 🧡 Swift
@@ -15,7 +15,7 @@
 //
 // → What's This File?
 //   It's a color theme, used to display a different color theme.
-//   Architectural Layer: Data Layer
+//   Architectural Layer: The business logic layer (the main non-visual system).
 //
 //   💡 Convenience Tip 👉🏻 We used extensions to seperate themes into seperate files providing
 //   designers with editable documents. Also allowing us to conveniently load the theme array.
@@ -26,19 +26,19 @@ import Foundation
 
 extension ThemeLoader {
     
-    var appBrandTheme: CalculatorTheme {
-        CalculatorTheme(id:"3",
-        background:             "#F6F8F9",
-        display:                "#000000",
-        operatorNormal:         "#4BE6A9",
-        operatorSelected:       "#70729D",
-        operatorTitle:          "#14145C",
+    var darkBlueTheme: CalculatorTheme {
+        CalculatorTheme(id:"6",
+        background:              "#1D1D1D",
+        display:                "#727272",
+        operatorNormal:         "#4566B6",
+        operatorSelected:       "#4566B6",
+        operatorTitle:          "#ffffff",
         operatorTitleSelected:  "#ffffff",
-        pinPad:                 "#E9F0F4",
-        pinPad123:              "#D3E9F4",
-        pinPadTitle:            "#000000",
-        extraFunctions:         "#E9F0F4",
-        extraFunctionsTitle:    "#4BE6A9",
-        statusBarStyle: .dark)
+        pinPad:                 "#1D1D1D",
+        pinPad123:              "#3F563F",
+        pinPadTitle:            "#767676",
+        extraFunctions:         "#323232",
+        extraFunctionsTitle:    "#FFFFFF",
+        statusBarStyle: .light)
     }
 }

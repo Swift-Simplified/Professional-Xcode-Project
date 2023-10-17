@@ -1,10 +1,10 @@
 //
-//  Array+SafeAccess.swift
-//  Calc123
+//  ThemeLoader.swift
+//  123Calc
 //
-//  Created by Matthew Harding (Swift engineer & online instructor) on 24/01/2023
+//  Created by SwiftSimplified.com on 23/09/2023.
 //
-//  Matthew Harding                 → All rights reserved
+//  SwiftSimplified.com             → All rights reserved
 //  Website                         → https://www.swiftsimplified.com
 //
 //  We 🧡 Swift
@@ -14,16 +14,24 @@
 // -------------------------------------------------------------------------------------------
 //
 // → What's This File?
-//   It's an extension for Swift Arrays. We added a nice safety feature for accessing values.
-//   This method of accessing values within an array is regularly used in the iOS industry!
-//   We would highly recommend that you start using it too.
+//   It's a struct that provides access to all of the color themes.
+//   Architectural Layer: The business logic layer (the main non-visual system).
 //
 // -------------------------------------------------------------------------------------------
 
+
 import Foundation
 
-extension Array {
-    subscript (safe index: Int) -> Element? {
-        return self.indices ~= index ? self[index] : nil
+struct ThemeLoader {
+    var allThemes: [CalculatorTheme] {
+        [appBrandTheme,
+        purpleTheme,
+        orangeTheme,
+        pinkTheme,
+        lightBlueTheme,
+        electroTheme,
+        washedOutTheme,
+        bloodOrangeTheme,
+        darkBlueTheme]
     }
 }
