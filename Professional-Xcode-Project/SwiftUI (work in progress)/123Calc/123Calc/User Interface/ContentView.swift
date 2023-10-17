@@ -8,111 +8,103 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var calculatorEngine: ReactiveCalculatorAPI
+    // MARK: Properties
     
-//    init(calculatorEngine: CalculatorAPI) {
-//        /// We need to manually initialise the ViewModel StateObjects here so we can inject the Calculator Engine
-//        /// This StateObject will only be initialised once at the beginning of the view lifetime
-//        /// (not every time the view is refreshed / init is called)
-//        /// See https://sarunw.com/posts/manually-initialize-stateobject/ for further info and Apple's view that this is an "officially supported" approach
-//        self._viewModel = StateObject(wrappedValue: ViewModel(calculatorEngine: calculatorEngine))
-//    }
-    
-    // MARK: - Size Properties
-    let buttonSize = CGSize(width: 78, height: 78)
+    @ObservedObject var calculator: ReactiveCalculatorAPI
+    private let buttonSize = CGSize(width: 78, height: 78) // TODO: How do we resize these buttons based on screen width?
     
     var body: some View {
         VStack {
-            Text(calculatorEngine.lcdDisplayText)
+            Text(calculator.lcdDisplayText)
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding()
                 .font(.system(size: 90))
 
             HStack {
                 Group {
-                    pinPadButton({
-                        calculatorEngine.clearPressed()
-                    }, label: "AC")
-                    pinPadButton({
-                        calculatorEngine.negatePressed()
-                    }, label: "⁺∕₋")
-                    pinPadButton({
-                        calculatorEngine.percentagePressed()
-                    }, label: "%")
-                    pinPadButton({
-                        calculatorEngine.dividePressed()
-                    }, label: "÷")
+                    pinPadButton("AC") {
+                        calculator.clearPressed()
+                    }
+                    pinPadButton("⁺∕₋") {
+                        calculator.negatePressed()
+                    }
+                    pinPadButton("%") {
+                        calculator.percentagePressed()
+                    }
+                    pinPadButton("÷") {
+                        calculator.dividePressed()
+                    }
                 }
             }
             
             HStack {
                 Group {
-                    pinPadButton({
-                        calculatorEngine.numberPressed(7)
-                    }, label: "7")
-                    pinPadButton({
-                        calculatorEngine.numberPressed(8)
-                    }, label: "8")
-                    pinPadButton({
-                        calculatorEngine.numberPressed(9)
-                    }, label: "9")
-                    pinPadButton({
-                        calculatorEngine.multiplyPressed()
-                    }, label: "X")
+                    pinPadButton("7") {
+                        calculator.numberPressed(7)
+                    }
+                    pinPadButton("8") {
+                        calculator.numberPressed(8)
+                    }
+                    pinPadButton("9") {
+                        calculator.numberPressed(9)
+                    }
+                    pinPadButton("X") {
+                        calculator.multiplyPressed()
+                    }
                 }
             }
             
             HStack {
                 Group {
-                    pinPadButton({
-                        calculatorEngine.numberPressed(4)
-                    }, label: "4")
-                    pinPadButton({
-                        calculatorEngine.numberPressed(5)
-                    }, label: "5")
-                    pinPadButton({
-                        calculatorEngine.numberPressed(6)
-                    }, label: "6")
-                    pinPadButton({
-                        calculatorEngine.minusPressed()
-                    }, label: "-")
+                    pinPadButton("4") {
+                        calculator.numberPressed(4)
+                    }
+                    pinPadButton("5") {
+                        calculator.numberPressed(5)
+                    }
+                    pinPadButton("6") {
+                        calculator.numberPressed(6)
+                    }
+                    pinPadButton("-") {
+                        calculator.minusPressed()
+                    }
                 }
             }
             
             HStack {
                 Group {
-                    pinPadButton({
-                        calculatorEngine.numberPressed(1)
-                    }, label: "1")
-                    pinPadButton({
-                        calculatorEngine.numberPressed(2)
-                    }, label: "2")
-                    pinPadButton({
-                        calculatorEngine.numberPressed(3)
-                    }, label: "3")
-                    pinPadButton({
-                        calculatorEngine.addPressed()
-                    }, label: "+")
+                    pinPadButton("1") {
+                        calculator.numberPressed(1)
+                    }
+                    pinPadButton("2") {
+                        calculator.numberPressed(2)
+                    }
+                    pinPadButton("3") {
+                        calculator.numberPressed(3)
+                    }
+                    pinPadButton("+") {
+                        calculator.addPressed()
+                    }
                 }
             }
             
             HStack {
                 Group {
-                    pinPadButton({
-                        calculatorEngine.numberPressed(0)
-                    }, label: "0", widthModifier: 2.1)
-                    pinPadButton({
-                        calculatorEngine.decimalPressed()
-                    }, label: ".")
-                    pinPadButton({
-                        calculatorEngine.equalsPressed()
-                    }, label: "=")
+                    pinPadButton("0", widthModifier: 2.1) {
+                        calculator.numberPressed(0)
+                    }
+                    pinPadButton(".") {
+                        calculator.decimalPressed()
+                    }
+                    pinPadButton("=") {
+                        calculator.equalsPressed()
+                    }
                 }
             }
         }
     }
     
-    @ViewBuilder func pinPadButton(_ action: @escaping () -> Void, label: String, widthModifier: CGFloat = 1) -> some View {
+    @ViewBuilder func pinPadButton(_ label: String, widthModifier: CGFloat = 1, _ action: @escaping () -> Void) -> some View {
         Button(action: {
             action()
         }, label: {
@@ -127,6 +119,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(calculatorEngine: ReactiveCalculatorAPI())
+        ContentView(calculator: ReactiveCalculatorAPI())
     }
 }
