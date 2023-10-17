@@ -12,7 +12,17 @@ class ReactiveThemeManager: ObservableObject {
     var currentTheme: CalculatorTheme
     
     init() {
-        self.currentTheme = themeManager.currentTheme
+        currentTheme = themeManager.currentTheme
+    }
+    
+    func moveToNextTheme() {
+        themeManager.moveToNextTheme()
+        refreshCurrentTheme()
+    }
+    
+    private func refreshCurrentTheme() {
+        objectWillChange.send()
+        currentTheme = themeManager.currentTheme
     }
 }
 
@@ -31,7 +41,9 @@ struct ContentView: View {
                 .padding()
                 .font(.system(size: 90))
                 .minimumScaleFactor(0.5)
-
+                .onTapGesture(count: 2) {
+                    rotateToNextTheme()
+                }
             HStack {
                 Group {
                     extraFeatureButton("AC") {
@@ -153,6 +165,10 @@ struct ContentView: View {
                 .foregroundColor(Color(hex: themeManager.currentTheme.extraFunctionsTitle))
                 .cornerRadius(10)
         })
+    }
+    
+    private func rotateToNextTheme() {
+        themeManager.moveToNextTheme()
     }
 }
 
