@@ -109,6 +109,7 @@ struct ContentView: View {
             action()
         }, label: {
             Text(label)
+                .font(.caption)
                 .frame(width: buttonSize.width * widthModifier, height: buttonSize.height)
                .background(Color.green)
                .foregroundColor(Color.white)
