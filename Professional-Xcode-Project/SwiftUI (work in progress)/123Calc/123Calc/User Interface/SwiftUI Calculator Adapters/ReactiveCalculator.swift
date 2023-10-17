@@ -1,8 +1,8 @@
 //
-//  ViewModel.swift
+//  ReactiveCalculator.swift
 //  123Calc
 //
-//  Created by Matt Harding on 12/06/2023.
+//  Created by Matt Harding on 17/10/2023.
 //
 
 import Foundation

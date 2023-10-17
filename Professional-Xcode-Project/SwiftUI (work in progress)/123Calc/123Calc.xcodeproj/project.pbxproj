@@ -29,6 +29,8 @@
 		482E48642ADEFA0100A3F7D2 /* DataStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E48502ADEFA0100A3F7D2 /* DataStoreManager.swift */; };
 		482E48672ADEFA8F00A3F7D2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E48662ADEFA8F00A3F7D2 /* Constants.swift */; };
 		482E48692ADF05D500A3F7D2 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E48682ADF05D500A3F7D2 /* Color+Hex.swift */; };
+		482E486C2ADF147400A3F7D2 /* ReactiveCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E486B2ADF147400A3F7D2 /* ReactiveCalculator.swift */; };
+		482E486E2ADF148E00A3F7D2 /* ReactiveThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E486D2ADF148E00A3F7D2 /* ReactiveThemeManager.swift */; };
 		48EB968E2A377987003BA4BA /* Calc123.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB968D2A377987003BA4BA /* Calc123.swift */; };
 		48EB96902A377987003BA4BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB968F2A377987003BA4BA /* ContentView.swift */; };
 		48EB96922A377988003BA4BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48EB96912A377988003BA4BA /* Assets.xcassets */; };
@@ -45,7 +47,6 @@
 		48EB96D02A377B95003BA4BA /* PercentageButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB96C42A377B95003BA4BA /* PercentageButtonTests.swift */; };
 		48EB96D12A377B95003BA4BA /* NegateButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB96C52A377B95003BA4BA /* NegateButtonTests.swift */; };
 		48EB96D22A377B95003BA4BA /* ClearButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB96C62A377B95003BA4BA /* ClearButtonTests.swift */; };
-		48EB970A2A378706003BA4BA /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB97092A378706003BA4BA /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		482E48502ADEFA0100A3F7D2 /* DataStoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreManager.swift; sourceTree = "<group>"; };
 		482E48662ADEFA8F00A3F7D2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		482E48682ADF05D500A3F7D2 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
+		482E486B2ADF147400A3F7D2 /* ReactiveCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveCalculator.swift; sourceTree = "<group>"; };
+		482E486D2ADF148E00A3F7D2 /* ReactiveThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveThemeManager.swift; sourceTree = "<group>"; };
 		48EB968A2A377987003BA4BA /* 123 Calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "123 Calc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48EB968D2A377987003BA4BA /* Calc123.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calc123.swift; sourceTree = "<group>"; };
 		48EB968F2A377987003BA4BA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,7 +102,6 @@
 		48EB96C42A377B95003BA4BA /* PercentageButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentageButtonTests.swift; sourceTree = "<group>"; };
 		48EB96C52A377B95003BA4BA /* NegateButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NegateButtonTests.swift; sourceTree = "<group>"; };
 		48EB96C62A377B95003BA4BA /* ClearButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearButtonTests.swift; sourceTree = "<group>"; };
-		48EB97092A378706003BA4BA /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,8 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				48EB968D2A377987003BA4BA /* Calc123.swift */,
-				48EB97092A378706003BA4BA /* ViewModel.swift */,
 				48EB968F2A377987003BA4BA /* ContentView.swift */,
+				482E486F2ADF14B000A3F7D2 /* SwiftUI Calculator Adapters */,
 				48EB96912A377988003BA4BA /* Assets.xcassets */,
 				48EB96932A377988003BA4BA /* Preview Content */,
 				482E486A2ADF05DA00A3F7D2 /* SwiftUI Extensions */,
@@ -205,6 +207,15 @@
 				482E48682ADF05D500A3F7D2 /* Color+Hex.swift */,
 			);
 			path = "SwiftUI Extensions";
+			sourceTree = "<group>";
+		};
+		482E486F2ADF14B000A3F7D2 /* SwiftUI Calculator Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				482E486B2ADF147400A3F7D2 /* ReactiveCalculator.swift */,
+				482E486D2ADF148E00A3F7D2 /* ReactiveThemeManager.swift */,
+			);
+			path = "SwiftUI Calculator Adapters";
 			sourceTree = "<group>";
 		};
 		48EB96812A377987003BA4BA = {
@@ -399,6 +410,7 @@
 				482E485F2ADEFA0100A3F7D2 /* DarkBlueTheme.swift in Sources */,
 				482E48562ADEFA0100A3F7D2 /* Equation.swift in Sources */,
 				482E48592ADEFA0100A3F7D2 /* ThemeLoader.swift in Sources */,
+				482E486E2ADF148E00A3F7D2 /* ReactiveThemeManager.swift in Sources */,
 				482E48532ADEFA0100A3F7D2 /* String+Prefix.swift in Sources */,
 				482E48692ADF05D500A3F7D2 /* Color+Hex.swift in Sources */,
 				482E48522ADEFA0100A3F7D2 /* String+Numbers.swift in Sources */,
@@ -418,7 +430,7 @@
 				482E485A2ADEFA0100A3F7D2 /* ThemeManager.swift in Sources */,
 				482E48542ADEFA0100A3F7D2 /* CalculatorAPI.swift in Sources */,
 				482E48572ADEFA0100A3F7D2 /* EquationBuilder.swift in Sources */,
-				48EB970A2A378706003BA4BA /* ViewModel.swift in Sources */,
+				482E486C2ADF147400A3F7D2 /* ReactiveCalculator.swift in Sources */,
 				482E48672ADEFA8F00A3F7D2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
