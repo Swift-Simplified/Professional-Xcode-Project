@@ -1,0 +1,29 @@
+//
+//  Array+SafeAccess.swift
+//  Calc123
+//
+//  Created by Matthew Harding (Swift engineer & online instructor) on 24/01/2023
+//
+//  Matthew Harding                 → All rights reserved
+//  Website                         → https://www.swiftsimplified.com
+//
+//  We 🧡 Swift
+//  Welcome to our community of Swift Simplified students!
+//
+//  🧕🏻🙋🏽‍♂️👨🏿‍💼👩🏼‍💼👩🏻‍💻💁🏼‍♀️👨🏼‍💼🙋🏻‍♂️🙋🏻‍♀️👩🏼‍💻🙋🏿💁🏽‍♂️🙋🏽‍♀️🙋🏿‍♀️🧕🏾🙋🏼‍♂️
+// -------------------------------------------------------------------------------------------
+//
+// → What's This File?
+//   It's an extension for Swift Arrays. We added a nice safety feature for accessing values.
+//   This method of accessing values within an array is regularly used in the iOS industry!
+//   We would highly recommend that you start using it too.
+//
+// -------------------------------------------------------------------------------------------
+
+import Foundation
+
+extension Array {
+    subscript (safe index: Int) -> Element? {
+        return self.indices ~= index ? self[index] : nil
+    }
+}
