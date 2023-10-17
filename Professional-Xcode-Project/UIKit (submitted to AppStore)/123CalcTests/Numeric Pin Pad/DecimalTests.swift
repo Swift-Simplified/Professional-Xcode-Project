@@ -22,30 +22,29 @@
 //
 // -------------------------------------------------------------------------------------------
 
-
-import XCTest
 @testable import Calc123
+import XCTest
 
 class DecimalTests: XCTestCase {
-    
     // MARK: - System Under Test
-    
+
     var sut: CalculatorAPI!
-    
+
     // MARK: - Setup And Tear Down
+
     override func setUp() {
-        sut = Calculator() {
-            // The calculator doesn't create the EquationBuilder or Equation values internally. This is known as "inversion of control" and is a bit advanced but allows us to provide different implementations of Equation and the EquationBuilder if we wanted to. 
+        sut = Calculator {
+            // The calculator doesn't create the EquationBuilder or Equation values internally. This is known as "inversion of control" and is a bit advanced but allows us to provide different implementations of Equation and the EquationBuilder if we wanted to.
             EquationBuilder(equation: Equation())
         }
     }
-    
+
     override func tearDown() {
         sut = nil
     }
 
     // MARK: - Pressing Decimal Button - Left Hand Side Of Equation
-    
+
     /// Test how the decimal button affects the equation. When pressed first before a numeric
     /// value the specified operand (left or right) will be set to zero.
     func testDecimalButtonWithZero_leftHandSideOfEquation() throws {
@@ -53,34 +52,34 @@ class DecimalTests: XCTestCase {
         sut.decimalPressed()
         XCTAssertEqual(sut.lhs, Decimal(0))
         XCTAssertEqual(sut.lcdDisplayText, "0.")
-        
+
         // 0.
         sut.clearPressed()
-        sut.numberPressed(0); sut.decimalPressed();
+        sut.numberPressed(0); sut.decimalPressed()
         XCTAssertEqual(sut.lhs, Decimal(0))
         XCTAssertEqual(sut.lcdDisplayText, "0.")
-        
+
         // 0.0
         sut.clearPressed()
         sut.numberPressed(0); sut.decimalPressed(); sut.numberPressed(0)
         XCTAssertEqual(sut.lhs, Decimal(0))
         XCTAssertEqual(sut.lcdDisplayText, "0.0")
-        
+
         // 0.00
         sut.clearPressed()
         sut.numberPressed(0); sut.decimalPressed(); sut.numberPressed(0); sut.numberPressed(0)
         XCTAssertEqual(sut.lhs, Decimal(0))
         XCTAssertEqual(sut.lcdDisplayText, "0.00")
-        
+
         // 0.0.0
         sut.clearPressed()
-        sut.numberPressed(0); sut.decimalPressed(); sut.numberPressed(0); sut.decimalPressed();
+        sut.numberPressed(0); sut.decimalPressed(); sut.numberPressed(0); sut.decimalPressed()
         XCTAssertEqual(sut.lhs, Decimal(0))
         XCTAssertEqual(sut.lcdDisplayText, "0.0")
     }
-    
+
     // MARK: - Pressing Decimal Button - Right Hand Side Of Equation
-    
+
     /// Test how the decimal button affects the equation. When pressed first before a numeric
     /// value the specified operand (left or right) will be set to zero.
     func testDecimalButtonWithZero_rightHandSideOfEquation() throws {
@@ -88,34 +87,34 @@ class DecimalTests: XCTestCase {
         sut.decimalPressed(); sut.addPressed(); sut.decimalPressed()
         XCTAssertEqual(sut.rhs, Decimal(0))
         XCTAssertEqual(sut.lcdDisplayText, "0.")
-        
+
         // . + 0.
         sut.clearPressed()
-        sut.decimalPressed(); sut.addPressed(); sut.numberPressed(0); sut.decimalPressed();
+        sut.decimalPressed(); sut.addPressed(); sut.numberPressed(0); sut.decimalPressed()
         XCTAssertEqual(sut.rhs, Decimal(0))
         XCTAssertEqual(sut.lcdDisplayText, "0.")
-        
+
         // . + 0.0
         sut.clearPressed()
         sut.decimalPressed(); sut.addPressed(); sut.numberPressed(0); sut.decimalPressed(); sut.numberPressed(0)
         XCTAssertEqual(sut.rhs, Decimal(0))
         XCTAssertEqual(sut.lcdDisplayText, "0.0")
-        
+
         // . + 0.00
         sut.clearPressed()
         sut.decimalPressed(); sut.addPressed(); sut.numberPressed(0); sut.decimalPressed(); sut.numberPressed(0); sut.numberPressed(0)
         XCTAssertEqual(sut.rhs, Decimal(0))
         XCTAssertEqual(sut.lcdDisplayText, "0.00")
-        
+
         // . + 0.0.0
         sut.clearPressed()
-        sut.decimalPressed(); sut.addPressed(); sut.numberPressed(0); sut.decimalPressed(); sut.numberPressed(0); sut.decimalPressed();
+        sut.decimalPressed(); sut.addPressed(); sut.numberPressed(0); sut.decimalPressed(); sut.numberPressed(0); sut.decimalPressed()
         XCTAssertEqual(sut.rhs, Decimal(0))
         XCTAssertEqual(sut.lcdDisplayText, "0.0")
     }
-    
+
     // MARK: - Half Finished Decimal With Zeros - Left Hand Side Of Equation
-    
+
     /// Test that the equation correctly represents an unfinished (half-entered) decimal with trailing zeros.
     /// From a mathematical point of view this will equate to zero, however the user is actually entering a
     /// decimal value - not zero.
@@ -124,22 +123,22 @@ class DecimalTests: XCTestCase {
         sut.numberPressed(0); sut.decimalPressed(); sut.numberPressed(0); sut.numberPressed(0)
         XCTAssertEqual(sut.lhs, Decimal(0))
         XCTAssertEqual(sut.lcdDisplayText, "0.00")
-        
+
         // 0.000
         sut.clearPressed()
         sut.numberPressed(0); sut.decimalPressed(); sut.numberPressed(0); sut.numberPressed(0); sut.numberPressed(0)
         XCTAssertEqual(sut.lhs, Decimal(0))
         XCTAssertEqual(sut.lcdDisplayText, "0.000")
-        
+
         // 0.0005
         sut.clearPressed()
         sut.numberPressed(0); sut.decimalPressed(); sut.numberPressed(0); sut.numberPressed(0); sut.numberPressed(0); sut.numberPressed(5)
         XCTAssertEqual(sut.lhs, Decimal(0.0005))
         XCTAssertEqual(sut.lcdDisplayText, "0.0005")
     }
-    
+
     // MARK: - Half Finished Decimal With Zeros - Right Hand Side Of Equation
-    
+
     /// Test that the equation correctly represents an unfinished (half-entered) decimal with trailing zeros.
     /// From a mathematical point of view this will equate to zero, however the user is actually entering a
     /// decimal value - not zero.
@@ -149,22 +148,22 @@ class DecimalTests: XCTestCase {
         sut.numberPressed(0); sut.decimalPressed(); sut.numberPressed(0); sut.numberPressed(0)
         XCTAssertEqual(sut.rhs, Decimal(0))
         XCTAssertEqual(sut.lcdDisplayText, "0.00")
-        
+
         // 0 + 0.000
         sut.clearPressed(); sut.addPressed()
         sut.numberPressed(0); sut.decimalPressed(); sut.numberPressed(0); sut.numberPressed(0); sut.numberPressed(0)
         XCTAssertEqual(sut.rhs, Decimal(0))
         XCTAssertEqual(sut.lcdDisplayText, "0.000")
-        
+
         // 0 + 0.0005
         sut.clearPressed(); sut.addPressed()
         sut.numberPressed(0); sut.decimalPressed(); sut.numberPressed(0); sut.numberPressed(0); sut.numberPressed(0); sut.numberPressed(5)
         XCTAssertEqual(sut.rhs, Decimal(0.0005))
         XCTAssertEqual(sut.lcdDisplayText, "0.0005")
     }
-    
+
     // MARK: - Operands - Left Hand Side Of Equation
-    
+
     /// Test the decimal value matches the value entered using the numeric keypad.
     func testDecimalInputOfLeftHandSideOfEquation() throws {
         // 0.123456789
@@ -182,15 +181,15 @@ class DecimalTests: XCTestCase {
         XCTAssertEqual(sut.lhs.formatted(), Decimal(0.123456789).formatted())
         XCTAssertEqual(sut.lcdDisplayText, "0.123457")
     }
-    
+
     // MARK: - Operands - Right Hand Side Of Equation
-    
+
     /// Test the decimal value matches the value entered using the numeric keypad.
     func testDecimalInputOfRightHandSideOfEquation() throws {
         // 0 + 0.123456789
         sut.numberPressed(0)
         sut.addPressed()
-        
+
         sut.numberPressed(0)
         sut.decimalPressed()
         sut.numberPressed(1)

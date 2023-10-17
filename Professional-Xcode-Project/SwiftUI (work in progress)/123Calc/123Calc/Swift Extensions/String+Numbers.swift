@@ -20,11 +20,9 @@
 //
 // -------------------------------------------------------------------------------------------
 
-
 import Foundation
 
 extension String {
-    
     var doubleValue: Double? {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal

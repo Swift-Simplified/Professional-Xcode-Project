@@ -7,11 +7,13 @@
 //: -------------------
 //: ## 123 Calc Demo
 //: This Swift playground file creates a new instance of our `Calculator` `class` and demonstrates how to correctly use its API *(Application Programming Interface)*. For more details please look at the unit tests.
+
 // MARK: - 📦 Demo of 123 Calc (The business logic - No UI)
+
 import Foundation // This framework includes the Decimal type
 /*
  We create the calculator by passing in a provider function executed each time a new equation is created.
- 
+
  The reason: In this project we use POP (Protocol Oriented Programming) to decoupling our solution from any concrete classes. For this to work, we must pass in a provider function executed each time a new equation is created.This is also known as "dependency injection" and "inversion of control".
  */
 let calc = Calculator {
@@ -90,7 +92,7 @@ calc.result
 
 /*
  We can apply the same operation again by pressing the equals button again.
- 
+
  This will take the last operation and apply it to the result of the current equation. i.e. if we have executed 1 + 2 = 3 and press the equals button once more + 2 will be appied again resulting in 3 + 2 = 5.
  */
 calc.clearPressed()
@@ -141,72 +143,91 @@ func numberPressed(_ number: Int) {
     calc.numberPressed(number)
     refreshDisplay()
 }
+
 func zeroPressed() {
     numberPressed(0)
 }
+
 func onePressed() {
     numberPressed(1)
 }
+
 func twoPressed() {
     numberPressed(2)
 }
+
 func threePressed() {
     numberPressed(3)
 }
+
 func fourPressed() {
     numberPressed(4)
 }
+
 func fivePressed() {
     numberPressed(5)
 }
+
 func sixPressed() {
     numberPressed(6)
 }
+
 func sevenPressed() {
     numberPressed(7)
 }
+
 func eightPressed() {
     numberPressed(8)
 }
+
 func ninePressed() {
     numberPressed(9)
 }
+
 // decimal point
 func decimalPressed() {
     calc.decimalPressed()
     refreshDisplay()
 }
+
 // math operations
 func addPressed() {
     calc.addPressed()
     refreshDisplay()
 }
+
 func minusPressed() {
     calc.minusPressed()
     refreshDisplay()
 }
+
 func divisionPressed() {
     calc.dividePressed()
     refreshDisplay()
 }
+
 func multiplicationPressed() {
     calc.multiplyPressed()
     refreshDisplay()
 }
+
 // equals
 func equalsPressed() {
     calc.equalsPressed()
     refreshDisplay()
 }
+
 // extra functions
 func clearPressed() {
     calc.clearPressed()
     refreshDisplay()
 }
+
 func percentagePressed() {
     calc.percentagePressed()
     refreshDisplay()
 }
+
 func negatePressed() {
     calc.negatePressed()
     refreshDisplay()

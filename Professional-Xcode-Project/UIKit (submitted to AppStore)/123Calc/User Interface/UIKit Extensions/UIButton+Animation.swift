@@ -21,13 +21,10 @@
 //   audience and give the app a certain "feel". Adding animations is a great idea.
 // -------------------------------------------------------------------------------------------
 
-
 import UIKit
 
 extension UIButton {
-    
     func bounce() {
-        
         UIView.animate(withDuration: 0.1, delay: 0, options: [.curveEaseOut, .allowUserInteraction]) { [weak self] in
             self?.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
             self?.alpha = 1

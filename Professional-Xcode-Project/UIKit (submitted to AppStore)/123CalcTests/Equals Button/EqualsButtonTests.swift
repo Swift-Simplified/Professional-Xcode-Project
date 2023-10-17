@@ -22,51 +22,50 @@
 //
 // -------------------------------------------------------------------------------------------
 
-
-import XCTest
 @testable import Calc123
+import XCTest
 
 class EqualsButtonTests: XCTestCase {
-    
     // MARK: - System Under Test
-    
+
     var sut: CalculatorAPI!
-    
+
     // MARK: - Setup And Tear Down
+
     override func setUp() {
-        sut = Calculator() {
-            // The calculator doesn't create the EquationBuilder or Equation values internally. This is known as "inversion of control" and is a bit advanced but allows us to provide different implementations of Equation and the EquationBuilder if we wanted to. 
+        sut = Calculator {
+            // The calculator doesn't create the EquationBuilder or Equation values internally. This is known as "inversion of control" and is a bit advanced but allows us to provide different implementations of Equation and the EquationBuilder if we wanted to.
             EquationBuilder(equation: Equation())
         }
     }
-    
+
     override func tearDown() {
         sut = nil
     }
-    
+
     // MARK: - Basic Math
-    
+
     /// Test the basic equations ensuring that the equals button provides a result to the equation.
     func testBasicEquation() throws {
         // 1 + 2 = 3
         sut.numberPressed(1); sut.addPressed(); sut.numberPressed(2); sut.equalsPressed()
         XCTAssertEqual(sut.result, Decimal(3))
-        
+
         // 1 - 2 = -1
         sut.numberPressed(1); sut.minusPressed(); sut.numberPressed(2); sut.equalsPressed()
         XCTAssertEqual(sut.result, Decimal(-1))
-        
+
         // 1 / 2 = 0.5
         sut.numberPressed(1); sut.dividePressed(); sut.numberPressed(2); sut.equalsPressed()
         XCTAssertEqual(sut.result, Decimal(0.5))
-        
+
         // 1 * 2 = 2
         sut.numberPressed(1); sut.multiplyPressed(); sut.numberPressed(2); sut.equalsPressed()
         XCTAssertEqual(sut.result, Decimal(2))
     }
-    
+
     // MARK: - Continuously Pressing Equals After Executing An Equation
-    
+
     /// Test creating an equation using addition followed by repeatedly pressing the equals button.
     /// Repeatedly pressing the equals button should repeat the last operation again. For example,
     /// if addition was the last action the same number will be added to the result of the equation.
@@ -76,13 +75,13 @@ class EqualsButtonTests: XCTestCase {
         sut.addPressed()
         sut.numberPressed(4)
         sut.equalsPressed()
-        
+
         // + 4 = 12
         sut.equalsPressed()
-        
+
         // + 4 = 16
         sut.equalsPressed()
-        
+
         XCTAssertEqual(sut.lhs, Decimal(12))
         XCTAssertEqual(sut.rhs, Decimal(4))
         XCTAssertEqual(sut.result, Decimal(16))
@@ -97,18 +96,18 @@ class EqualsButtonTests: XCTestCase {
         sut.minusPressed()
         sut.numberPressed(4)
         sut.equalsPressed()
-        
+
         // - 4 = -4
         sut.equalsPressed()
-        
+
         // - 4 = -8
         sut.equalsPressed()
-        
+
         XCTAssertEqual(sut.lhs, Decimal(-4))
         XCTAssertEqual(sut.rhs, Decimal(4))
         XCTAssertEqual(sut.result, Decimal(-8))
     }
-    
+
     /// Test creating an equation using division followed by repeatedly pressing the equals button.
     /// Repeatedly pressing the equals button should repeat the last operation again. For example,
     /// if division was the last action the result of the equation will be divided by that number again.
@@ -118,18 +117,18 @@ class EqualsButtonTests: XCTestCase {
         sut.dividePressed()
         sut.numberPressed(4)
         sut.equalsPressed()
-        
+
         // / 4 = 0.25
         sut.equalsPressed()
-        
+
         // / 4 = 0.0625
         sut.equalsPressed()
-        
+
         XCTAssertEqual(sut.lhs, Decimal(0.25))
         XCTAssertEqual(sut.rhs, Decimal(4))
         XCTAssertEqual(sut.result, Decimal(0.0625))
     }
-    
+
     /// Test creating an equation using multiplication followed by repeatedly pressing the equals button.
     /// Repeatedly pressing the equals button should repeat the last operation again. For example,
     /// if multiplication was the last action the result of the equation will be multiplied by the same number.
@@ -139,16 +138,15 @@ class EqualsButtonTests: XCTestCase {
         sut.multiplyPressed()
         sut.numberPressed(4)
         sut.equalsPressed()
-        
+
         // * 4 = 64
         sut.equalsPressed()
-        
+
         // * 4 = 256
         sut.equalsPressed()
-        
+
         XCTAssertEqual(sut.lhs, Decimal(64))
         XCTAssertEqual(sut.rhs, Decimal(4))
         XCTAssertEqual(sut.result, Decimal(256))
     }
 }
-

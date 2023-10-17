@@ -21,24 +21,22 @@
 //   designers with editable documents. Also allowing us to conveniently load the theme array.
 // -------------------------------------------------------------------------------------------
 
-
 import Foundation
 
 extension ThemeLoader {
-    
     var bloodOrangeTheme: CalculatorTheme {
-        CalculatorTheme(id:"9",
-        background:             "#4A1D41",
-        display:                "#ffffff",
-        operatorNormal:         "#8D3362",
-        operatorSelected:       "#AA0E67",
-        operatorTitle:          "#ffffff",
-        operatorTitleSelected:  "#ffffff",
-        pinPad:                 "#C64661",
-        pinPad123:              "#CC5E79",
-        pinPadTitle:            "#ffffff",
-        extraFunctions:         "#9C3766",
-        extraFunctionsTitle:    "#ffffff",
-        statusBarStyle: .light)
+        CalculatorTheme(id: "9",
+                        background: "#4A1D41",
+                        display: "#ffffff",
+                        operatorNormal: "#8D3362",
+                        operatorSelected: "#AA0E67",
+                        operatorTitle: "#ffffff",
+                        operatorTitleSelected: "#ffffff",
+                        pinPad: "#C64661",
+                        pinPad123: "#CC5E79",
+                        pinPadTitle: "#ffffff",
+                        extraFunctions: "#9C3766",
+                        extraFunctionsTitle: "#ffffff",
+                        statusBarStyle: .light)
     }
 }

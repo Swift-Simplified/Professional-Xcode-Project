@@ -19,19 +19,18 @@
 //
 // -------------------------------------------------------------------------------------------
 
-
 import Foundation
 
 struct ThemeLoader {
     var allThemes: [CalculatorTheme] {
         [appBrandTheme,
-        purpleTheme,
-        orangeTheme,
-        pinkTheme,
-        lightBlueTheme,
-        electroTheme,
-        washedOutTheme,
-        bloodOrangeTheme,
-        darkBlueTheme]
+         purpleTheme,
+         orangeTheme,
+         pinkTheme,
+         lightBlueTheme,
+         electroTheme,
+         washedOutTheme,
+         bloodOrangeTheme,
+         darkBlueTheme]
     }
 }

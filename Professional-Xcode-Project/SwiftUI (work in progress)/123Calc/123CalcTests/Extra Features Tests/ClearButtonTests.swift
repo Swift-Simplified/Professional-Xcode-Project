@@ -21,65 +21,64 @@
 //      it functions as expected and sleep easier at night too.
 // -------------------------------------------------------------------------------------------
 
-
-import XCTest
 @testable import Calc123
+import XCTest
 
 class ClearButtonTests: XCTestCase {
-    
     // MARK: - System Under Test
-    
+
     var sut: CalculatorAPI!
-    
+
     // MARK: - Setup And Tear Down
+
     override func setUp() {
-        sut = Calc123Engine() {
+        sut = Calc123Engine {
             MathInputController(equation: MathEquation())
         }
     }
-    
+
     override func tearDown() {
         sut = nil
     }
 
     // MARK: - Clear
-    
+
     func testLHS_clear() throws {
         sut.numberPressed(3)
-        
+
         sut.clearPressed()
-        
+
         XCTAssertTrue(sut.lhs.isEqual(to: Decimal(0)))
         XCTAssertTrue(sut.rhs == nil)
         XCTAssertTrue(sut.result == nil)
     }
-    
+
     func testLHS_123Clear() throws {
         sut.numberPressed(1)
         sut.numberPressed(2)
         sut.numberPressed(3)
-        
+
         sut.clearPressed()
-        
+
         XCTAssertTrue(sut.lhs.isEqual(to: Decimal(0)))
         XCTAssertTrue(sut.rhs == nil)
         XCTAssertTrue(sut.result == nil)
     }
-    
+
     func testRHS_123Clear() throws {
         sut.numberPressed(1)
         sut.addPressed()
         sut.numberPressed(1)
         sut.numberPressed(2)
         sut.numberPressed(3)
-        
+
         sut.clearPressed()
-        
+
         XCTAssertTrue(sut.lhs.isEqual(to: Decimal(0)))
         XCTAssertTrue(sut.rhs == nil)
         XCTAssertTrue(sut.result == nil)
     }
-    
+
     func testClearAfterResult() throws {
         sut.numberPressed(3)
         sut.numberPressed(3)
@@ -89,28 +88,28 @@ class ClearButtonTests: XCTestCase {
         sut.numberPressed(3)
         sut.numberPressed(3)
         sut.equalsPressed()
-        
+
         sut.clearPressed()
-        
+
         XCTAssertTrue(sut.lhs.isEqual(to: Decimal(0)))
         XCTAssertTrue(sut.rhs == nil)
         XCTAssertTrue(sut.result == nil)
     }
-    
+
     func testMultipleClear() throws {
         sut.numberPressed(3)
-        
+
         sut.clearPressed()
         sut.clearPressed()
         sut.clearPressed()
         sut.clearPressed()
         sut.clearPressed()
-        
+
         XCTAssertTrue(sut.lhs.isEqual(to: Decimal(0)))
         XCTAssertTrue(sut.rhs == nil)
         XCTAssertTrue(sut.result == nil)
     }
-    
+
     func testMultipleClearAfterResult() throws {
         sut.numberPressed(3)
         sut.numberPressed(3)
@@ -120,13 +119,13 @@ class ClearButtonTests: XCTestCase {
         sut.numberPressed(3)
         sut.numberPressed(3)
         sut.equalsPressed()
-        
+
         sut.clearPressed()
         sut.clearPressed()
         sut.clearPressed()
         sut.clearPressed()
         sut.clearPressed()
-        
+
         XCTAssertTrue(sut.lhs.isEqual(to: Decimal(0)))
         XCTAssertTrue(sut.rhs == nil)
         XCTAssertTrue(sut.result == nil)

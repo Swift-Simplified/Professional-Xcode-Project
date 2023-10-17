@@ -21,35 +21,34 @@
 //      it functions as expected and sleep easier at night too.
 // -------------------------------------------------------------------------------------------
 
-
-import XCTest
 @testable import Calc123
+import XCTest
 
 class PinPadTests: XCTestCase {
-    
     // MARK: - System Under Test
-    
+
     var sut: CalculatorAPI!
-    
+
     // MARK: - Setup And Tear Down
+
     override func setUp() {
-        sut = Calc123Engine() {
+        sut = Calc123Engine {
             MathInputController(equation: MathEquation())
         }
     }
-    
+
     override func tearDown() {
         sut = nil
     }
 
     // MARK: - Operands - Left
-    
+
     func testLHS_isEqualTo1() throws {
         sut.numberPressed(1)
-        
+
         XCTAssertTrue(sut.lhs.isEqual(to: Decimal(1)))
     }
-    
+
     func testLHS_isEqualTo123() throws {
         sut.numberPressed(1)
         sut.numberPressed(2)
@@ -57,7 +56,7 @@ class PinPadTests: XCTestCase {
 
         XCTAssertTrue(sut.lhs.isEqual(to: Decimal(123)))
     }
-    
+
     func testLHS_isEqualTo123456789() throws {
         sut.numberPressed(1)
         sut.numberPressed(2)
@@ -69,21 +68,19 @@ class PinPadTests: XCTestCase {
         sut.numberPressed(8)
         sut.numberPressed(9)
 
-        XCTAssertTrue(sut.lhs.isEqual(to: Decimal(123456789)))
+        XCTAssertTrue(sut.lhs.isEqual(to: Decimal(123_456_789)))
     }
-    
-    
-    
+
     // MARK: - Operands - Right
-    
+
     func testRHS_isEqualTo1() throws {
         sut.numberPressed(1)
         sut.addPressed()
         sut.numberPressed(1)
-        
+
         XCTAssertTrue(sut.rhs?.isEqual(to: Decimal(1)) ?? false)
     }
-    
+
     func testRHS_isEqualTo123() throws {
         sut.numberPressed(1)
         sut.addPressed()
@@ -93,7 +90,7 @@ class PinPadTests: XCTestCase {
 
         XCTAssertTrue(sut.rhs?.isEqual(to: Decimal(123)) ?? false)
     }
-    
+
     func testRHS_isEqualTo123456789() throws {
         sut.numberPressed(1)
         sut.addPressed()
@@ -107,23 +104,23 @@ class PinPadTests: XCTestCase {
         sut.numberPressed(8)
         sut.numberPressed(9)
 
-        XCTAssertTrue(sut.rhs?.isEqual(to: Decimal(123456789)) ?? false)
+        XCTAssertTrue(sut.rhs?.isEqual(to: Decimal(123_456_789)) ?? false)
     }
-    
+
     // MARK: - Invalid Numbers
-    
+
     func testLHS_outOfRangeLow() throws {
         sut.numberPressed(-1)
 
         XCTAssertTrue(sut.lhs.isEqual(to: Decimal(0)))
     }
-    
+
     func testLHS_outOfRangeHigh() throws {
         sut.numberPressed(10)
 
         XCTAssertTrue(sut.lhs.isEqual(to: Decimal(0)))
     }
-    
+
     func testRHS_outOfRangeLow() throws {
         sut.numberPressed(0)
         sut.addPressed()
@@ -131,7 +128,7 @@ class PinPadTests: XCTestCase {
 
         XCTAssertTrue(sut.lhs.isEqual(to: Decimal(0)))
     }
-    
+
     func testRHS_outOfRangeHigh() throws {
         sut.numberPressed(0)
         sut.addPressed()

@@ -6,20 +6,19 @@
 //
 import SwiftUI
 
-
 class ReactiveThemeManager: ObservableObject {
     private let themeManager = ThemeManager()
     var currentTheme: CalculatorTheme
-    
+
     init() {
         currentTheme = themeManager.currentTheme
     }
-    
+
     func moveToNextTheme() {
         themeManager.moveToNextTheme()
         refreshCurrentTheme()
     }
-    
+
     private func refreshCurrentTheme() {
         objectWillChange.send()
         currentTheme = themeManager.currentTheme
@@ -27,12 +26,12 @@ class ReactiveThemeManager: ObservableObject {
 }
 
 struct ContentView: View {
-    
     // MARK: Properties
+
     @ObservedObject var calc: ReactiveCalculator
     @ObservedObject var themeManager: ReactiveThemeManager
     private let buttonSize = CGSize(width: 78, height: 78) // TODO: How do we resize these buttons based on screen width?
-    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -63,7 +62,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                
+
                 HStack {
                     Group {
                         pinPadButton("7") {
@@ -80,7 +79,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                
+
                 HStack {
                     Group {
                         pinPadButton("4") {
@@ -97,7 +96,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                
+
                 HStack {
                     Group {
                         pinPadButton("1") {
@@ -114,7 +113,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                
+
                 HStack {
                     Group {
                         pinPadButton("0", widthModifier: 2.1) {
@@ -136,7 +135,7 @@ struct ContentView: View {
         }
         .preferredColorScheme(themeManager.currentTheme.statusBarStyle == .dark ? .light : .dark)
     }
-    
+
     @ViewBuilder func pinPadButton(_ label: String, widthModifier: CGFloat = 1, _ action: @escaping () -> Void) -> some View {
         Button(action: {
             action()
@@ -149,7 +148,7 @@ struct ContentView: View {
                 .cornerRadius(10)
         })
     }
-    
+
     @ViewBuilder func operatorButton(_ label: String, _ action: @escaping () -> Void) -> some View {
         Button(action: {
             action()
@@ -162,7 +161,7 @@ struct ContentView: View {
                 .cornerRadius(10)
         })
     }
-    
+
     @ViewBuilder func extraFeatureButton(_ label: String, _ action: @escaping () -> Void) -> some View {
         Button(action: {
             action()
@@ -175,7 +174,7 @@ struct ContentView: View {
                 .cornerRadius(10)
         })
     }
-    
+
     private func rotateToNextTheme() {
         themeManager.moveToNextTheme()
     }

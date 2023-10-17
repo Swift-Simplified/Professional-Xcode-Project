@@ -22,30 +22,29 @@
 //
 // -------------------------------------------------------------------------------------------
 
-
-import XCTest
 @testable import Calc123
+import XCTest
 
 class NegateButtonTests: XCTestCase {
-    
     // MARK: - System Under Test
-    
+
     var sut: CalculatorAPI!
-    
+
     // MARK: - Setup And Tear Down
+
     override func setUp() {
-        sut = Calculator() {
-            // The calculator doesn't create the EquationBuilder or Equation values internally. This is known as "inversion of control" and is a bit advanced but allows us to provide different implementations of Equation and the EquationBuilder if we wanted to. 
+        sut = Calculator {
+            // The calculator doesn't create the EquationBuilder or Equation values internally. This is known as "inversion of control" and is a bit advanced but allows us to provide different implementations of Equation and the EquationBuilder if we wanted to.
             EquationBuilder(equation: Equation())
         }
     }
-    
+
     override func tearDown() {
         sut = nil
     }
 
     // MARK: - Basic Math
-    
+
     /// Test pressing the negate button on the left hand side operand.
     func testNegateButton_leftHandSideOfEquation() throws {
         // 123456789 - = -123456789
@@ -58,18 +57,18 @@ class NegateButtonTests: XCTestCase {
         sut.numberPressed(7)
         sut.numberPressed(8)
         sut.numberPressed(9)
-        
+
         sut.negatePressed()
 
-        XCTAssertEqual(sut.lhs, Decimal(-123456789))
+        XCTAssertEqual(sut.lhs, Decimal(-123_456_789))
     }
-    
+
     /// Test pressing the negate button on the right hand side operand.
     func testNegateButton_rightHandSideOfEquation() throws {
         // 0 + 123456789 - = -123456789
         sut.numberPressed(0)
         sut.addPressed()
-        
+
         sut.numberPressed(1)
         sut.numberPressed(2)
         sut.numberPressed(3)
@@ -79,14 +78,14 @@ class NegateButtonTests: XCTestCase {
         sut.numberPressed(7)
         sut.numberPressed(8)
         sut.numberPressed(9)
-        
+
         sut.negatePressed()
 
-        XCTAssertEqual(sut.rhs, Decimal(-123456789))
+        XCTAssertEqual(sut.rhs, Decimal(-123_456_789))
     }
-    
+
     // MARK: - Button Repeatedly Pressed
-    
+
     /// Test pressing the negate button repeatedly on the left hand side operand.
     func testNegateButtonRepeatedlyPressed_leftHandSideOfEquation() throws {
         // 1 - - = 1
@@ -94,7 +93,7 @@ class NegateButtonTests: XCTestCase {
         sut.negatePressed()
         sut.negatePressed()
         XCTAssertEqual(sut.lhs, Decimal(1))
-        
+
         // 4 - - - = -4
         sut.clearPressed(); sut.numberPressed(4)
         sut.negatePressed()
@@ -102,27 +101,27 @@ class NegateButtonTests: XCTestCase {
         sut.negatePressed()
         XCTAssertEqual(sut.lhs, Decimal(-4))
     }
-    
+
     /// Test pressing the negate button repeatedly on the right hand side operand.
     func testNegateButtonRepeatedlyPressed_rightHandSideOfEquation() throws {
         // 0 + 1 - - = 1
-        sut.numberPressed(0); sut.addPressed();
+        sut.numberPressed(0); sut.addPressed()
         sut.numberPressed(1)
         sut.negatePressed()
         sut.negatePressed()
         XCTAssertEqual(sut.rhs, Decimal(1))
-        
+
         // 0 + 4 - - - = -4
-        sut.clearPressed(); sut.numberPressed(0); sut.addPressed();
+        sut.clearPressed(); sut.numberPressed(0); sut.addPressed()
         sut.numberPressed(4)
         sut.negatePressed()
         sut.negatePressed()
         sut.negatePressed()
         XCTAssertEqual(sut.rhs, Decimal(-4))
     }
-    
+
     // MARK: - Result
-    
+
     /// Test pressing the negate button on the result of an equation.
     func testNegatingAResult() throws {
         // 1 + 1 = 2
@@ -130,15 +129,15 @@ class NegateButtonTests: XCTestCase {
         sut.addPressed()
         sut.numberPressed(1)
         sut.equalsPressed()
-        
+
         // - = -2
         sut.negatePressed()
-        
+
         XCTAssertEqual(sut.lhs, Decimal(-2))
         XCTAssertEqual(sut.rhs, nil)
         XCTAssertEqual(sut.result, nil)
     }
-    
+
     /// Test pressing the negate button twice on the result of an equation.
     func testNegatingAResultTwice() throws {
         // 1 + 1 = 2
@@ -146,11 +145,11 @@ class NegateButtonTests: XCTestCase {
         sut.addPressed()
         sut.numberPressed(1)
         sut.equalsPressed()
-        
+
         // - - = 2
         sut.negatePressed()
         sut.negatePressed()
-        
+
         XCTAssertEqual(sut.lhs, Decimal(2))
         XCTAssertEqual(sut.rhs, nil)
         XCTAssertEqual(sut.result, nil)
