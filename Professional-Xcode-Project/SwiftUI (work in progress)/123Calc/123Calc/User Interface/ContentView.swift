@@ -2,12 +2,26 @@
 //  ContentView.swift
 //  123Calc
 //
-//  Created by Matt Harding on 12/06/2023.
+//  Created by SwiftSimplified.com on 23/09/2023.
 //
+//  SwiftSimplified.com             → All rights reserved
+//  Website                         → https://www.swiftsimplified.com
+//
+//  We 🧡 Swift
+//  Welcome to our community of Swift Simplified students!
+//
+//  🧕🏻🙋🏽‍♂️👨🏿‍💼👩🏼‍💼👩🏻‍💻💁🏼‍♀️👨🏼‍💼🙋🏻‍♂️🙋🏻‍♀️👩🏼‍💻🙋🏿💁🏽‍♂️🙋🏽‍♀️🙋🏿‍♀️🧕🏾🙋🏼‍♂️
+// -------------------------------------------------------------------------------------------
+//
+// → What's This File?
+//   This file outlines the instructions for displaying our data inside this view.
+//   Architectural Layer: The user interface (UI) of the app.
+//
+// -------------------------------------------------------------------------------------------
+
 import SwiftUI
 
 struct ContentView: View {
-    
     // MARK: Datasource Properties
 
     @ObservedObject var calc: ReactiveCalculator
@@ -15,7 +29,7 @@ struct ContentView: View {
     private let buttonSize = CGSize(width: 78, height: 78)
 
     // MARK: Main View Builder
-    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -121,7 +135,7 @@ struct ContentView: View {
     }
 
     // MARK: Button Builders
-    
+
     @ViewBuilder func pinPadButton(_ label: String, widthModifier: CGFloat = 1, _ action: @escaping () -> Void) -> some View {
         Button(action: {
             action()
@@ -160,7 +174,7 @@ struct ContentView: View {
                 .cornerRadius(10)
         })
     }
-    
+
     // MARK: Changing Themes
 
     private func rotateToNextTheme() {

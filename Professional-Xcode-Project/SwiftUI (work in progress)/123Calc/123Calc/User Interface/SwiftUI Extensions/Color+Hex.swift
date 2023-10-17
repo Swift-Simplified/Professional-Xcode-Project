@@ -2,8 +2,22 @@
 //  Color+Hex.swift
 //  123Calc
 //
-//  Created by Matt Harding on 17/10/2023.
+//  Created by SwiftSimplified.com on 23/09/2023.
 //
+//  SwiftSimplified.com             → All rights reserved
+//  Website                         → https://www.swiftsimplified.com
+//
+//  We 🧡 Swift
+//  Welcome to our community of Swift Simplified students!
+//
+//  🧕🏻🙋🏽‍♂️👨🏿‍💼👩🏼‍💼👩🏻‍💻💁🏼‍♀️👨🏼‍💼🙋🏻‍♂️🙋🏻‍♀️👩🏼‍💻🙋🏿💁🏽‍♂️🙋🏽‍♀️🙋🏿‍♀️🧕🏾🙋🏼‍♂️
+// -------------------------------------------------------------------------------------------
+//
+// → What's This File?
+//   It's an extension created to instantiate an instance of Color using a hexidecimal value.
+//   Architectural Layer: The user interface (UI) of the app.
+//
+// -------------------------------------------------------------------------------------------
 
 import Foundation
 import SwiftUI

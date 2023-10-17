@@ -31,22 +31,23 @@
 		482E48692ADF05D500A3F7D2 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E48682ADF05D500A3F7D2 /* Color+Hex.swift */; };
 		482E486C2ADF147400A3F7D2 /* ReactiveCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E486B2ADF147400A3F7D2 /* ReactiveCalculator.swift */; };
 		482E486E2ADF148E00A3F7D2 /* ReactiveThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E486D2ADF148E00A3F7D2 /* ReactiveThemeManager.swift */; };
+		484F8E8E2ADF367F0071062F /* SubtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E487A2ADF35B300A3F7D2 /* SubtractionTests.swift */; };
+		484F8E8F2ADF367F0071062F /* AdditionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E487C2ADF35B300A3F7D2 /* AdditionTests.swift */; };
+		484F8E902ADF367F0071062F /* ClearButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E48772ADF35B300A3F7D2 /* ClearButtonTests.swift */; };
+		484F8E912ADF367F0071062F /* NegateButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E48762ADF35B300A3F7D2 /* NegateButtonTests.swift */; };
+		484F8E922ADF367F0071062F /* EqualsButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E48732ADF35B300A3F7D2 /* EqualsButtonTests.swift */; };
+		484F8E932ADF367F0071062F /* DecimalMathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E48792ADF35B300A3F7D2 /* DecimalMathTests.swift */; };
+		484F8E942ADF367F0071062F /* PercentageButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E48752ADF35B300A3F7D2 /* PercentageButtonTests.swift */; };
+		484F8E952ADF367F0071062F /* DivisionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E487B2ADF35B300A3F7D2 /* DivisionTests.swift */; };
+		484F8E962ADF367F0071062F /* DecimalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E48812ADF35B300A3F7D2 /* DecimalTests.swift */; };
+		484F8E972ADF367F0071062F /* EnteringZeroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E48802ADF35B300A3F7D2 /* EnteringZeroTests.swift */; };
+		484F8E982ADF367F0071062F /* DisplayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E48712ADF35B300A3F7D2 /* DisplayTests.swift */; };
+		484F8E992ADF367F0071062F /* NumericKeypadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E487F2ADF35B300A3F7D2 /* NumericKeypadTests.swift */; };
+		484F8E9A2ADF367F0071062F /* MultiplyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E487D2ADF35B300A3F7D2 /* MultiplyTests.swift */; };
 		48EB968E2A377987003BA4BA /* Calc123.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB968D2A377987003BA4BA /* Calc123.swift */; };
 		48EB96902A377987003BA4BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB968F2A377987003BA4BA /* ContentView.swift */; };
 		48EB96922A377988003BA4BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48EB96912A377988003BA4BA /* Assets.xcassets */; };
 		48EB96952A377988003BA4BA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48EB96942A377988003BA4BA /* Preview Assets.xcassets */; };
-		48EB96C72A377B95003BA4BA /* DivideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB96B82A377B95003BA4BA /* DivideTests.swift */; };
-		48EB96C82A377B95003BA4BA /* SubtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB96B92A377B95003BA4BA /* SubtractionTests.swift */; };
-		48EB96C92A377B95003BA4BA /* EqualsButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB96BA2A377B95003BA4BA /* EqualsButtonTests.swift */; };
-		48EB96CA2A377B95003BA4BA /* AdditionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB96BB2A377B95003BA4BA /* AdditionTests.swift */; };
-		48EB96CB2A377B95003BA4BA /* MultiplyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB96BC2A377B95003BA4BA /* MultiplyTests.swift */; };
-		48EB96CC2A377B95003BA4BA /* DisplayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB96BE2A377B95003BA4BA /* DisplayTests.swift */; };
-		48EB96CD2A377B95003BA4BA /* ZeroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB96C02A377B95003BA4BA /* ZeroTests.swift */; };
-		48EB96CE2A377B95003BA4BA /* PinPadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB96C12A377B95003BA4BA /* PinPadTests.swift */; };
-		48EB96CF2A377B95003BA4BA /* DecimalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB96C22A377B95003BA4BA /* DecimalTests.swift */; };
-		48EB96D02A377B95003BA4BA /* PercentageButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB96C42A377B95003BA4BA /* PercentageButtonTests.swift */; };
-		48EB96D12A377B95003BA4BA /* NegateButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB96C52A377B95003BA4BA /* NegateButtonTests.swift */; };
-		48EB96D22A377B95003BA4BA /* ClearButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB96C62A377B95003BA4BA /* ClearButtonTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,24 +85,25 @@
 		482E48682ADF05D500A3F7D2 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		482E486B2ADF147400A3F7D2 /* ReactiveCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveCalculator.swift; sourceTree = "<group>"; };
 		482E486D2ADF148E00A3F7D2 /* ReactiveThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveThemeManager.swift; sourceTree = "<group>"; };
+		482E48712ADF35B300A3F7D2 /* DisplayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayTests.swift; sourceTree = "<group>"; };
+		482E48732ADF35B300A3F7D2 /* EqualsButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualsButtonTests.swift; sourceTree = "<group>"; };
+		482E48752ADF35B300A3F7D2 /* PercentageButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentageButtonTests.swift; sourceTree = "<group>"; };
+		482E48762ADF35B300A3F7D2 /* NegateButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NegateButtonTests.swift; sourceTree = "<group>"; };
+		482E48772ADF35B300A3F7D2 /* ClearButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearButtonTests.swift; sourceTree = "<group>"; };
+		482E48792ADF35B300A3F7D2 /* DecimalMathTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalMathTests.swift; sourceTree = "<group>"; };
+		482E487A2ADF35B300A3F7D2 /* SubtractionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtractionTests.swift; sourceTree = "<group>"; };
+		482E487B2ADF35B300A3F7D2 /* DivisionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DivisionTests.swift; sourceTree = "<group>"; };
+		482E487C2ADF35B300A3F7D2 /* AdditionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionTests.swift; sourceTree = "<group>"; };
+		482E487D2ADF35B300A3F7D2 /* MultiplyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplyTests.swift; sourceTree = "<group>"; };
+		482E487F2ADF35B300A3F7D2 /* NumericKeypadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumericKeypadTests.swift; sourceTree = "<group>"; };
+		482E48802ADF35B300A3F7D2 /* EnteringZeroTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnteringZeroTests.swift; sourceTree = "<group>"; };
+		482E48812ADF35B300A3F7D2 /* DecimalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalTests.swift; sourceTree = "<group>"; };
 		48EB968A2A377987003BA4BA /* 123 Calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "123 Calc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48EB968D2A377987003BA4BA /* Calc123.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calc123.swift; sourceTree = "<group>"; };
 		48EB968F2A377987003BA4BA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		48EB96912A377988003BA4BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48EB96942A377988003BA4BA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		48EB969A2A377988003BA4BA /* 123CalcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 123CalcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		48EB96B82A377B95003BA4BA /* DivideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DivideTests.swift; sourceTree = "<group>"; };
-		48EB96B92A377B95003BA4BA /* SubtractionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtractionTests.swift; sourceTree = "<group>"; };
-		48EB96BA2A377B95003BA4BA /* EqualsButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualsButtonTests.swift; sourceTree = "<group>"; };
-		48EB96BB2A377B95003BA4BA /* AdditionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionTests.swift; sourceTree = "<group>"; };
-		48EB96BC2A377B95003BA4BA /* MultiplyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplyTests.swift; sourceTree = "<group>"; };
-		48EB96BE2A377B95003BA4BA /* DisplayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayTests.swift; sourceTree = "<group>"; };
-		48EB96C02A377B95003BA4BA /* ZeroTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZeroTests.swift; sourceTree = "<group>"; };
-		48EB96C12A377B95003BA4BA /* PinPadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinPadTests.swift; sourceTree = "<group>"; };
-		48EB96C22A377B95003BA4BA /* DecimalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalTests.swift; sourceTree = "<group>"; };
-		48EB96C42A377B95003BA4BA /* PercentageButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentageButtonTests.swift; sourceTree = "<group>"; };
-		48EB96C52A377B95003BA4BA /* NegateButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NegateButtonTests.swift; sourceTree = "<group>"; };
-		48EB96C62A377B95003BA4BA /* ClearButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearButtonTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,54 @@
 			path = "SwiftUI Calculator Adapters";
 			sourceTree = "<group>";
 		};
+		482E48702ADF35B300A3F7D2 /* Visual Display */ = {
+			isa = PBXGroup;
+			children = (
+				482E48712ADF35B300A3F7D2 /* DisplayTests.swift */,
+			);
+			path = "Visual Display";
+			sourceTree = "<group>";
+		};
+		482E48722ADF35B300A3F7D2 /* Equals Button */ = {
+			isa = PBXGroup;
+			children = (
+				482E48732ADF35B300A3F7D2 /* EqualsButtonTests.swift */,
+			);
+			path = "Equals Button";
+			sourceTree = "<group>";
+		};
+		482E48742ADF35B300A3F7D2 /* Clear Negate and Percentage */ = {
+			isa = PBXGroup;
+			children = (
+				482E48752ADF35B300A3F7D2 /* PercentageButtonTests.swift */,
+				482E48762ADF35B300A3F7D2 /* NegateButtonTests.swift */,
+				482E48772ADF35B300A3F7D2 /* ClearButtonTests.swift */,
+			);
+			path = "Clear Negate and Percentage";
+			sourceTree = "<group>";
+		};
+		482E48782ADF35B300A3F7D2 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				482E487C2ADF35B300A3F7D2 /* AdditionTests.swift */,
+				482E487A2ADF35B300A3F7D2 /* SubtractionTests.swift */,
+				482E487B2ADF35B300A3F7D2 /* DivisionTests.swift */,
+				482E487D2ADF35B300A3F7D2 /* MultiplyTests.swift */,
+				482E48792ADF35B300A3F7D2 /* DecimalMathTests.swift */,
+			);
+			path = Math;
+			sourceTree = "<group>";
+		};
+		482E487E2ADF35B300A3F7D2 /* Numeric Pin Pad */ = {
+			isa = PBXGroup;
+			children = (
+				482E48802ADF35B300A3F7D2 /* EnteringZeroTests.swift */,
+				482E487F2ADF35B300A3F7D2 /* NumericKeypadTests.swift */,
+				482E48812ADF35B300A3F7D2 /* DecimalTests.swift */,
+			);
+			path = "Numeric Pin Pad";
+			sourceTree = "<group>";
+		};
 		48EB96812A377987003BA4BA = {
 			isa = PBXGroup;
 			children = (
@@ -258,52 +308,13 @@
 		48EB969D2A377988003BA4BA /* 123CalcTests */ = {
 			isa = PBXGroup;
 			children = (
-				48EB96BD2A377B95003BA4BA /* LCD Display */,
-				48EB96B72A377B95003BA4BA /* Operator Tests */,
-				48EB96C32A377B95003BA4BA /* Extra Features Tests */,
-				48EB96BF2A377B95003BA4BA /* Pin Pad Tests */,
+				482E48782ADF35B300A3F7D2 /* Math */,
+				482E48722ADF35B300A3F7D2 /* Equals Button */,
+				482E487E2ADF35B300A3F7D2 /* Numeric Pin Pad */,
+				482E48742ADF35B300A3F7D2 /* Clear Negate and Percentage */,
+				482E48702ADF35B300A3F7D2 /* Visual Display */,
 			);
 			path = 123CalcTests;
-			sourceTree = "<group>";
-		};
-		48EB96B72A377B95003BA4BA /* Operator Tests */ = {
-			isa = PBXGroup;
-			children = (
-				48EB96B82A377B95003BA4BA /* DivideTests.swift */,
-				48EB96B92A377B95003BA4BA /* SubtractionTests.swift */,
-				48EB96BA2A377B95003BA4BA /* EqualsButtonTests.swift */,
-				48EB96BB2A377B95003BA4BA /* AdditionTests.swift */,
-				48EB96BC2A377B95003BA4BA /* MultiplyTests.swift */,
-			);
-			path = "Operator Tests";
-			sourceTree = "<group>";
-		};
-		48EB96BD2A377B95003BA4BA /* LCD Display */ = {
-			isa = PBXGroup;
-			children = (
-				48EB96BE2A377B95003BA4BA /* DisplayTests.swift */,
-			);
-			path = "LCD Display";
-			sourceTree = "<group>";
-		};
-		48EB96BF2A377B95003BA4BA /* Pin Pad Tests */ = {
-			isa = PBXGroup;
-			children = (
-				48EB96C02A377B95003BA4BA /* ZeroTests.swift */,
-				48EB96C12A377B95003BA4BA /* PinPadTests.swift */,
-				48EB96C22A377B95003BA4BA /* DecimalTests.swift */,
-			);
-			path = "Pin Pad Tests";
-			sourceTree = "<group>";
-		};
-		48EB96C32A377B95003BA4BA /* Extra Features Tests */ = {
-			isa = PBXGroup;
-			children = (
-				48EB96C42A377B95003BA4BA /* PercentageButtonTests.swift */,
-				48EB96C52A377B95003BA4BA /* NegateButtonTests.swift */,
-				48EB96C62A377B95003BA4BA /* ClearButtonTests.swift */,
-			);
-			path = "Extra Features Tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -439,18 +450,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48EB96C92A377B95003BA4BA /* EqualsButtonTests.swift in Sources */,
-				48EB96CA2A377B95003BA4BA /* AdditionTests.swift in Sources */,
-				48EB96CB2A377B95003BA4BA /* MultiplyTests.swift in Sources */,
-				48EB96D22A377B95003BA4BA /* ClearButtonTests.swift in Sources */,
-				48EB96CE2A377B95003BA4BA /* PinPadTests.swift in Sources */,
-				48EB96CD2A377B95003BA4BA /* ZeroTests.swift in Sources */,
-				48EB96C82A377B95003BA4BA /* SubtractionTests.swift in Sources */,
-				48EB96CC2A377B95003BA4BA /* DisplayTests.swift in Sources */,
-				48EB96C72A377B95003BA4BA /* DivideTests.swift in Sources */,
-				48EB96CF2A377B95003BA4BA /* DecimalTests.swift in Sources */,
-				48EB96D12A377B95003BA4BA /* NegateButtonTests.swift in Sources */,
-				48EB96D02A377B95003BA4BA /* PercentageButtonTests.swift in Sources */,
+				484F8E902ADF367F0071062F /* ClearButtonTests.swift in Sources */,
+				484F8E9A2ADF367F0071062F /* MultiplyTests.swift in Sources */,
+				484F8E912ADF367F0071062F /* NegateButtonTests.swift in Sources */,
+				484F8E8E2ADF367F0071062F /* SubtractionTests.swift in Sources */,
+				484F8E942ADF367F0071062F /* PercentageButtonTests.swift in Sources */,
+				484F8E8F2ADF367F0071062F /* AdditionTests.swift in Sources */,
+				484F8E922ADF367F0071062F /* EqualsButtonTests.swift in Sources */,
+				484F8E952ADF367F0071062F /* DivisionTests.swift in Sources */,
+				484F8E972ADF367F0071062F /* EnteringZeroTests.swift in Sources */,
+				484F8E932ADF367F0071062F /* DecimalMathTests.swift in Sources */,
+				484F8E982ADF367F0071062F /* DisplayTests.swift in Sources */,
+				484F8E962ADF367F0071062F /* DecimalTests.swift in Sources */,
+				484F8E992ADF367F0071062F /* NumericKeypadTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,7 +666,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/123Calc.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/123Calc";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/123 Calc.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/123 Calc";
 			};
 			name = Debug;
 		};
@@ -673,7 +685,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/123Calc.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/123Calc";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/123 Calc.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/123 Calc";
 			};
 			name = Release;
 		};

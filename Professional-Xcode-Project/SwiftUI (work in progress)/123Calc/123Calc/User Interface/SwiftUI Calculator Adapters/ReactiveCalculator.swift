@@ -2,8 +2,24 @@
 //  ReactiveCalculator.swift
 //  123Calc
 //
-//  Created by Matt Harding on 17/10/2023.
+//  Created by SwiftSimplified.com on 23/09/2023.
 //
+//  SwiftSimplified.com             → All rights reserved
+//  Website                         → https://www.swiftsimplified.com
+//
+//  We 🧡 Swift
+//  Welcome to our community of Swift Simplified students!
+//
+//  🧕🏻🙋🏽‍♂️👨🏿‍💼👩🏼‍💼👩🏻‍💻💁🏼‍♀️👨🏼‍💼🙋🏻‍♂️🙋🏻‍♀️👩🏼‍💻🙋🏿💁🏽‍♂️🙋🏽‍♀️🙋🏿‍♀️🧕🏾🙋🏼‍♂️
+// -------------------------------------------------------------------------------------------
+//
+// → What's This File?
+//   It's a class created to be an adapter between the Calculator system and the reactive
+//   SwiftUI framework in order to automatically trigger our SwiftUI Views to redraw
+//   themselves.
+//   Architectural Layer: The user interface (UI) of the app.
+//
+// -------------------------------------------------------------------------------------------
 
 import Foundation
 
