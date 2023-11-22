@@ -27,6 +27,11 @@ Simplifying [the official Language Guide](https://docs.swift.org/swift-book/docu
 
 **Unit  tests:** This product was built by writing the tests first, which provided immediate feedback for each function and feature created helping us to know if our code works properly under all conditions and matches the expected behaviour. We recommend using TDD *(Test Driven development)* for all greenfield projects. 
 
+## Why This Is Useful 🤷🏼‍♂️
+It may be a useful to have a reference of what standard of code you'll be expected to write when working in industry. 
+
+Also, it's just nice to see how a professional would build an app ready for the AppStore. 
+
 ## How To Become A Swift Engineer
 Most companies offering iOS developer jobs require maintenance for existing products written in Swift. 
 
